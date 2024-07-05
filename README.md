@@ -14,21 +14,21 @@ Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for 
 
 ## Introduction
 
-CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, offering:
+CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors and business offering:
+- Home dashboard
 - Secure cryptocurrency exchange
 - Wallet management
 - Social interactions
 - Customer support
-- Home dashboard
 
 ## Features
 
+- **Home Dashboard**: Overview of activities and market trends.
 - **User Authentication**: Secure login and signup.
 - **Cryptocurrency Exchange**: Real-time trading.
 - **Wallet Management**: Manage multiple wallets.
 - **Social Interaction**: Connect with other users.
 - **Support Services**: Access support and FAQ.
-- **Home Dashboard**: Overview of activities and market trends.
 
 ## Technologies
 
@@ -50,8 +50,8 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/yourusername/CoinByte.git
-   cd CoinByte
+   git clone https://github.com/yourusername/CoinByte2.0.git
+   cd CoinByte2.0
    ```
 
 2. **Backend Setup:**
