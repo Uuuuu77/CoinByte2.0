@@ -1,3 +1,4 @@
+```markdown
 # CoinByte
 
 Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for seamless and secure trading, wallet management, social interaction, and support services.
@@ -14,7 +15,7 @@ Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for 
 
 ## Introduction
 
-CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors and business offering:
+CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors, and businesses offering:
 - Home dashboard
 - Secure cryptocurrency exchange
 - Wallet management
@@ -32,7 +33,7 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 
 ## Technologies
 
-- **Frontend**: React, JavaScript, HTML, CSS (Bootstrap)
+- **Frontend**: React, JavaScript, HTML, CSS (Bootstrap), Vite
 - **Backend**: Node.js, Express, MongoDB
 - **Hosting**: Firebase or Vercel
 - **Authentication**: JWT
@@ -41,7 +42,7 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 ## Installation
 
 ### Prerequisites
-- Node.js (version 12.x)
+- Node.js (version 12.x or later)
 - MongoDB
 - Git
 - Firebase or Vercel account
@@ -82,7 +83,7 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 6. **Start the Frontend Server:**
    ```sh
    cd frontend
-   npm start
+   npm run dev
    ```
 
 ## Usage
@@ -104,6 +105,8 @@ CoinByte/
 │   ├── .env
 │   └── server.js
 ├── frontend/
+│   ├── index.html
+│   ├── package.json
 │   ├── public/
 │   ├── src/
 │   │   ├── components/
@@ -113,6 +116,10 @@ CoinByte/
 │   │   ├── utils/
 │   │   ├── App.js
 │   │   └── index.js
+│   ├── node_modules/
+│   ├── package-lock.json
+│   ├── README.md
+│   └── vite.config.js
 └── README.md
 ```
 
@@ -127,4 +134,4 @@ Contributions are welcome! Please:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for detaails.
