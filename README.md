@@ -1,4 +1,3 @@
-```markdown
 # CoinByte
 
 Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for seamless and secure trading, wallet management, social interaction, and support services.
@@ -134,4 +133,4 @@ Contributions are welcome! Please:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for detaails.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
