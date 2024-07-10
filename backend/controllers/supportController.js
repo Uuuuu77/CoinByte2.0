@@ -1,5 +1,5 @@
 // supportController.js
-const Ticket = require('../models/Ticket');
+const Ticket = require('../models/SupportTicket');
 
 // Create a new support ticket
 const createTicket = async (req, res) => {
