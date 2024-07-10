@@ -30,6 +30,10 @@ app.use('/api/social', require('./routes/socialRoutes'));
 app.use('/api/support', require('./routes/supportRoutes'));
 app.use('/api/user', require('./routes/userRoutes'));
 app.use('/api/wallet', require('./routes/walletRoutes'));
+app.use('/api/activity-logs', require('./routes/activityLogRoutes'));
+app.use('/api/news', require('./routes/newsRoutes'));
+app.use('/api/messages', require('./routes/messageRoutes'));
+app.use('/api/notifications', require('./routes/notificationRoutes'));
 
 // Start Server
 app.listen(port, () => {
