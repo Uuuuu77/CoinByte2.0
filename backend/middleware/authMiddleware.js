@@ -1,3 +1,4 @@
+// authMiddleware.js
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 const dotenv = require('dotenv');
@@ -27,6 +28,7 @@ const authenticateToken = (req, res, next) => {
       req.user = user;
       next();
     } catch (error) {
+      console.error(error);
       res.status(500).json({ message: 'Internal Server Error' });
     }
   });
