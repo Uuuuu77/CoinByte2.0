@@ -1,8 +1,9 @@
+// auth.js
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const { User } = require('./models');
-const { sendEmail } = require('./utils');
+const { User } = require('../models');
+const { sendEmail } = require('../utils');
 const { OAuth2Client } = require('google-auth-library');
 const dotenv = require('dotenv');
 
@@ -23,14 +24,17 @@ router.post('/register', async (req, res) => {
   try {
     const { username, email, password, user_type } = req.body;
 
+    // Check if user already exists
     if (await User.findOne({ username }) || await User.findOne({ email })) {
       return res.status(400).json({ message: 'User already exists' });
     }
 
+    // Hash the password and save the user
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ username, email, password: hashedPassword, user_type });
     await newUser.save();
 
+    // Send a welcome email
     sendEmail({
       subject: 'New User Registration',
       recipient: email,
@@ -39,6 +43,7 @@ router.post('/register', async (req, res) => {
 
     res.status(201).json({ message: 'User registered successfully' });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
@@ -49,9 +54,11 @@ router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
 
+    // Check if the user exists and the password matches
     if (user && await bcrypt.compare(password, user.password)) {
       const token = generateToken(user);
 
+      // Send a login notification email
       sendEmail({
         subject: 'New Login Notification',
         recipient: user.email,
@@ -63,12 +70,13 @@ router.post('/login', async (req, res) => {
       res.status(401).json({ message: 'Invalid credentials' });
     }
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Server error' });
   }
 });
 
 // Google OAuth login route
-router.get('/google', async (req, res) => {
+router.get('/google', (req, res) => {
   const redirectUri = client.generateAuthUrl({
     access_type: 'offline',
     scope: ['profile', 'email'],
@@ -89,6 +97,7 @@ router.get('/google/callback', async (req, res) => {
 
     const { email, name, sub: googleId } = ticket.getPayload();
 
+    // Find or create a new user
     let user = await User.findOne({ email });
     if (!user) {
       user = new User({ username: name, email, googleId, user_type: 'individual' });
@@ -97,6 +106,7 @@ router.get('/google/callback', async (req, res) => {
 
     const token = generateToken(user);
 
+    // Send a login notification email
     sendEmail({
       subject: 'New Login Notification',
       recipient: email,
@@ -105,6 +115,7 @@ router.get('/google/callback', async (req, res) => {
 
     res.json({ message: 'Login successful', token });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ message: 'Google login failed' });
   }
 });
