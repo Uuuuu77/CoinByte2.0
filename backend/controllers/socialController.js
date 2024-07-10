@@ -1,39 +1,55 @@
-const Post = require('../models/Post');  // Assuming you have a Post model defined
-const Comment = require('../models/Comment');  // Assuming you have a Comment model defined
+// socialController.js
+const Post = require('../models/Post');
+const Comment = require('../models/Comment');
 
+// Create a new post
 const createPost = async (req, res) => {
-  const { content } = req.body;
-  const userId = req.user._id;
+  try {
+    const { content } = req.body;
+    const userId = req.user._id;
 
-  const post = new Post({
-    userId,
-    content,
-  });
+    const post = new Post({
+      userId,
+      content,
+    });
 
-  await post.save();
-
-  res.status(201).json({ message: 'Post created successfully', post });
+    await post.save();
+    res.status(201).json({ message: 'Post created successfully', post });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
 };
 
+// Get all posts
 const getPosts = async (req, res) => {
-  const posts = await Post.find().populate('userId', 'username');
-
-  res.json(posts);
+  try {
+    const posts = await Post.find().populate('userId', 'username');
+    res.json(posts);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
 };
 
+// Create a new comment
 const createComment = async (req, res) => {
-  const { postId, content } = req.body;
-  const userId = req.user._id;
+  try {
+    const { postId, content } = req.body;
+    const userId = req.user._id;
 
-  const comment = new Comment({
-    postId,
-    userId,
-    content,
-  });
+    const comment = new Comment({
+      postId,
+      userId,
+      content,
+    });
 
-  await comment.save();
-
-  res.status(201).json({ message: 'Comment created successfully', comment });
+    await comment.save();
+    res.status(201).json({ message: 'Comment created successfully', comment });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
 };
 
 module.exports = {
