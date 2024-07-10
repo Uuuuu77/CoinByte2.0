@@ -1,27 +1,40 @@
-const Wallet = require('../models/Wallet');  // Assuming you have a Wallet model defined
+// walletController.js
+const Wallet = require('../models/Wallet');
 
+// Get user's wallet
 const getWallet = async (req, res) => {
-  const userId = req.user._id;
-  const wallet = await Wallet.findOne({ userId });
+  try {
+    const userId = req.user._id;
+    const wallet = await Wallet.findOne({ userId });
 
-  if (!wallet) {
-    return res.status(404).json({ message: 'Wallet not found' });
+    if (!wallet) {
+      return res.status(404).json({ message: 'Wallet not found' });
+    }
+
+    res.json(wallet);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
-
-  res.json(wallet);
 };
 
+// Update user's wallet
 const updateWallet = async (req, res) => {
-  const userId = req.user._id;
-  const updates = req.body;
+  try {
+    const userId = req.user._id;
+    const updates = req.body;
 
-  const wallet = await Wallet.findOneAndUpdate({ userId }, updates, { new: true });
+    const wallet = await Wallet.findOneAndUpdate({ userId }, updates, { new: true });
 
-  if (!wallet) {
-    return res.status(404).json({ message: 'Wallet not found' });
+    if (!wallet) {
+      return res.status(404).json({ message: 'Wallet not found' });
+    }
+
+    res.json({ message: 'Wallet updated successfully', wallet });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
-
-  res.json({ message: 'Wallet updated successfully', wallet });
 };
 
 module.exports = {
