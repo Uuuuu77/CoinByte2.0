@@ -1,9 +1,12 @@
+// socialRoutes.js
 const express = require('express');
-const socialController = require('../controllers/socialController');
+const { createPost, getPosts, createComment } = require('../controllers/socialController');
+const authenticateToken = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.get('/messages', socialController.getMessages);
-router.post('/message', socialController.createMessage);
+router.post('/posts', authenticateToken, createPost);
+router.get('/posts', authenticateToken, getPosts);
+router.post('/comments', authenticateToken, createComment);
 
 module.exports = router;
