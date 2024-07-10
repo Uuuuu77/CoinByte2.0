@@ -1,3 +1,4 @@
+// Transaction.js
 const mongoose = require('mongoose');
 
 const transactionSchema = new mongoose.Schema({
@@ -26,6 +27,10 @@ const transactionSchema = new mongoose.Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  status: {
+    type: String,
+    default: 'pending' // e.g., 'pending', 'completed', 'failed'
   }
 });
 
