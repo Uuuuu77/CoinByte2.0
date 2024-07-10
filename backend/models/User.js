@@ -1,3 +1,4 @@
+// User.js
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
@@ -23,6 +24,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     unique: true,
     sparse: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
+  },
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
