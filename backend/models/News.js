@@ -1,22 +1,29 @@
+// News.js
 const mongoose = require('mongoose');
 
-const newsSchema = new mongoose.Schema({
-  title: {
-    type: String,
+const messageSchema = new mongoose.Schema({
+  sender: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
+  receiver: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
   content: {
     type: String,
     required: true
   },
-  date: {
+  timestamp: {
     type: Date,
     default: Date.now
   },
-  author: {
-    type: String,
-    required: true
+  read: {
+    type: Boolean,
+    default: false
   }
 });
 
-module.exports = mongoose.model('News', newsSchema);
+module.exports = mongoose.model('Message', messageSchema);
