@@ -3,7 +3,7 @@ const User = require('../models/User');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const { OAuth2Client } = require('google-auth-library');
-const { sendEmail } = require('../utils/sendEmail');
+const { sendEmail } = require('../utils/email');
 const dotenv = require('dotenv');
 
 dotenv.config();
