@@ -26,4 +26,5 @@ const messageSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Message', messageSchema);
+// Use a singleton pattern to avoid recompiling the model
+module.exports = mongoose.models.Message || mongoose.model('Message', messageSchema);
