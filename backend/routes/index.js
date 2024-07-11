@@ -11,6 +11,7 @@ const activityLogRoutes = require('./activityLogRoutes');
 const newsRoutes = require('./newsRoutes');
 const messageRoutes = require('./messageRoutes');
 const notificationRoutes = require('./notificationRoutes');
+const paymentRoutes = require('./paymentRoutes');
 
 const router = express.Router();
 
@@ -24,5 +25,6 @@ router.use('/activity-logs', activityLogRoutes);
 router.use('/news', newsRoutes);
 router.use('/messages', messageRoutes);
 router.use('/notifications', notificationRoutes);
+router.use('/payment', paymentRoutes);
 
 module.exports = router;
