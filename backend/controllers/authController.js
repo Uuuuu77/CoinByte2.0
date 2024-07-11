@@ -66,6 +66,12 @@ const login = async (req, res) => {
   }
 };
 
+// User logout
+const logout = (req, res) => {
+  // To logout, client-side should simply delete the JWT token from storage (e.g., localStorage or cookies).
+  res.json({ message: 'Logout successful' });
+};
+
 // Google OAuth login
 const googleLogin = (req, res) => {
   const redirectUri = `${req.protocol}://${req.get('host')}/auth/google_login/callback`;
@@ -123,6 +129,7 @@ const googleCallback = async (req, res) => {
 module.exports = {
   register,
   login,
+  logout,  // Exporting logout function
   googleLogin,
   googleCallback,
 };
