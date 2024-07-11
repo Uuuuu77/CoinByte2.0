@@ -34,6 +34,7 @@ app.use('/api/activity-logs', require('./routes/activityLogRoutes'));
 app.use('/api/news', require('./routes/newsRoutes'));
 app.use('/api/messages', require('./routes/messageRoutes'));
 app.use('/api/notifications', require('./routes/notificationRoutes'));
+app.use('/api/payments', require('./routes/paymentRoutes'));
 
 // Start Server
 app.listen(port, () => {
