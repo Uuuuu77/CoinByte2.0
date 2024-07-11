@@ -3,7 +3,8 @@ const exchangeController = require('../controllers/exchangeController');
 
 const router = express.Router();
 
-router.post('/trade', exchangeController.trade);
-router.get('/orders', exchangeController.getOrders);
+router.post('/buy', exchangeController.buy);
+router.post('/sell', exchangeController.sell);
+router.get('/transactions', exchangeController.getTransactions);
 
 module.exports = router;
