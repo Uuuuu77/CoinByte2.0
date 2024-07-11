@@ -1,7 +1,7 @@
 // exchangeController.js
 const Transaction = require('../models/Transaction');
 const User = require('../models/User');
-const { sendEmail } = require('../utils/sendEmail');
+const { sendEmail } = require('../utils/email');
 
 // Create a new transaction
 const createTransaction = async (req, res) => {
