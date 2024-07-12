@@ -2,16 +2,31 @@
 
 :root {
   --main-bg-color: #121212;
-  --main-text-color: #fff;
-  --main-link-color: #61dafb;
-  --header-footer-bg-color: #20232a;
+  --main-text-color: #ffffff;
+  --main-link-color: #1e90ff;
+  --header-footer-bg-color: #1f1f1f;
+  --sidebar-bg-color: #1f1f1f;
+  --button-bg-color: #1e90ff;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #187bcd;
 }
 
-body {
+body.light-mode {
+  --main-bg-color: #ffffff;
+  --main-text-color: #000000;
+  --header-footer-bg-color: #f1f1f1;
+  --sidebar-bg-color: #f1f1f1;
+}
+
+html, body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  background-color: var(--main-bg-color);
-  color: var(--main-text-color);
-  font-family: Arial, sans-serif;
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

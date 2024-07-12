@@ -1,19 +1,18 @@
 /* Sidebar.css */
 
 .sidebar {
-  width: 200px;
   background-color: var(--sidebar-bg-color);
-  height: 100vh;
+  height: 100%;
+  padding: 1rem;
   position: fixed;
+  width: 250px;
   top: 0;
   left: 0;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
@@ -22,11 +21,14 @@
 }
 
 .sidebar ul li a {
-  color: var(--sidebar-link-color);
+  color: var(--main-text-color);
   text-decoration: none;
-  font-size: 1rem;
 }
 
-.sidebar ul li a:hover {
-  text-decoration: underline;
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
 }

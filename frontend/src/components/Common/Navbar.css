@@ -1,42 +1,19 @@
 /* Navbar.css */
 
 .navbar {
+  background-color: var(--header-footer-bg-color);
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  background-color: var(--navbar-bg-color);
 }
 
-.navbar-logo a {
-  color: var(--navbar-logo-color);
-  font-size: 1.5rem;
-  text-decoration: none;
-}
-
-.navbar-links {
-  list-style: none;
+.navbar .links {
   display: flex;
   gap: 1rem;
 }
 
-.navbar-links li {
-  display: inline;
-}
-
-.navbar-links a {
-  color: var(--navbar-link-color);
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.navbar-auth-links {
+.navbar .auth-links {
   display: flex;
   gap: 1rem;
-}
-
-.navbar-auth-links a {
-  color: var(--navbar-link-color);
-  text-decoration: none;
-  font-size: 1rem;
 }
