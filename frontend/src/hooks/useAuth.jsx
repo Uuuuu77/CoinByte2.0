@@ -16,7 +16,7 @@ const useAuth = () => {
         setLoading(false);
       }
     };
-    
+
     fetchUser();
   }, []);
 

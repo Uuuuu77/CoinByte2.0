@@ -1,15 +1,15 @@
 // Navbar.jsx
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
+import useAuth from '../../hooks/useAuth';
 import './Navbar.css';
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useAuth();
+  const { user, handleLogout } = useAuth();
   const history = useHistory();
 
-  const handleLogout = () => {
-    logout();
+  const handleLogoutClick = () => {
+    handleLogout();
     history.push('/auth');
   };
 
@@ -25,8 +25,8 @@ const Navbar = () => {
         <li><Link to="/wallet">Wallet</Link></li>
         <li><Link to="/social">Social</Link></li>
         <li><Link to="/support">Support</Link></li>
-        {isAuthenticated ? (
-          <li><button onClick={handleLogout}>Logout</button></li>
+        {user ? (
+          <li><button onClick={handleLogoutClick}>Logout</button></li>
         ) : (
           <li><Link to="/auth">Login</Link></li>
         )}
