@@ -1,7 +1,7 @@
 // App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Common/Header';
+import Header from './components/Common/Navbar';
 import Footer from './components/Common/Footer';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
