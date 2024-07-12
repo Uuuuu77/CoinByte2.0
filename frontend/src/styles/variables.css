@@ -1,15 +1,18 @@
 /* variables.css */
 
 :root {
-  --main-bg-color: #ffffff;
-  --main-text-color: #000000;
-  --header-footer-bg-color: #f8f9fa;
-  --main-link-color: #007bff;
-}
-
-body.dark-mode {
   --main-bg-color: #121212;
   --main-text-color: #ffffff;
-  --header-footer-bg-color: #20232a;
-  --main-link-color: #61dafb;
+  --main-link-color: #1e90ff;
+  --header-footer-bg-color: #1f1f1f;
+  --navbar-bg-color: #1f1f1f;
+  --navbar-logo-color: #ffffff;
+  --navbar-link-color: #ffffff;
+  --sidebar-bg-color: #1f1f1f;
+  --sidebar-link-color: #ffffff;
+  --footer-bg-color: #1f1f1f;
+  --footer-link-color: #ffffff;
+  --button-bg-color: #1e90ff;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #187bcd;
 }

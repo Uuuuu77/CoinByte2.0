@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../services/auth';
+import './Signup.css';
 
 const Signup = () => {
   const [email, setEmail] = useState('');

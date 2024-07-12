@@ -8,11 +8,9 @@ const ThemeContextProvider = ({ children }) => {
 
   // Function to toggle the theme
   const toggleTheme = () => {
-    if (theme === 'dark') {
-      setTheme('light');
-    } else {
-      setTheme('dark');
-    }
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.body.className = newTheme; // Apply theme class to body
   };
 
   // Save theme preference to local storage
@@ -20,11 +18,13 @@ const ThemeContextProvider = ({ children }) => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
+      document.body.className = savedTheme; // Apply saved theme class to body
     }
   }, []);
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
+    document.body.className = theme; // Apply theme class to body
   }, [theme]);
 
   return (

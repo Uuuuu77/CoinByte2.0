@@ -4,12 +4,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--header-footer-bg-color);
   padding: 1rem;
+  background-color: var(--navbar-bg-color);
 }
 
 .navbar-logo a {
-  color: var(--main-text-color);
+  color: var(--navbar-logo-color);
   font-size: 1.5rem;
   text-decoration: none;
 }
@@ -21,18 +21,22 @@
 }
 
 .navbar-links li {
-  margin: 0;
+  display: inline;
 }
 
-.navbar-links a, .navbar-links button {
-  color: var(--main-text-color);
+.navbar-links a {
+  color: var(--navbar-link-color);
   text-decoration: none;
-  background: none;
-  border: none;
-  cursor: pointer;
   font-size: 1rem;
 }
 
-.navbar-links button:hover, .navbar-links a:hover {
-  opacity: 0.8;
+.navbar-auth-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.navbar-auth-links a {
+  color: var(--navbar-link-color);
+  text-decoration: none;
+  font-size: 1rem;
 }
