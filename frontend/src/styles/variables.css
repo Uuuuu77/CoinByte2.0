@@ -1,0 +1,15 @@
+/* variables.css */
+
+:root {
+  --main-bg-color: #ffffff;
+  --main-text-color: #000000;
+  --header-footer-bg-color: #f8f9fa;
+  --main-link-color: #007bff;
+}
+
+body.dark-mode {
+  --main-bg-color: #121212;
+  --main-text-color: #ffffff;
+  --header-footer-bg-color: #20232a;
+  --main-link-color: #61dafb;
+}

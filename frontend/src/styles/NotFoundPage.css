@@ -1,0 +1,11 @@
+/* NotFoundPage.css */
+.not-found-page {
+  text-align: center;
+  padding: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

@@ -1,0 +1,21 @@
+/* dark-mode.css */
+
+body.dark-mode {
+  --main-bg-color: #121212;
+  --main-text-color: #ffffff;
+  --header-footer-bg-color: #20232a;
+  --main-link-color: #61dafb;
+}
+
+body.dark-mode {
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+body.dark-mode a {
+  color: var(--main-link-color);
+}
+
+body.dark-mode header, body.dark-mode footer {
+  background-color: var(--header-footer-bg-color);
+}

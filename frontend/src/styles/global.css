@@ -1,0 +1,48 @@
+/* global.css */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+a {
+  color: var(--main-link-color);
+  text-decoration: none;
+}
+
+header, footer {
+  background-color: var(--header-footer-bg-color);
+  padding: 1rem;
+}
+
+.container {
+  padding: 1rem;
+}
+
+button {
+  background-color: var(--main-link-color);
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  color: var(--main-bg-color);
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

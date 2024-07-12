@@ -1,21 +1,35 @@
+// Navbar.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
+import './Navbar.css';
 
 const Navbar = () => {
+  const { isAuthenticated, logout } = useAuth();
+  const history = useHistory();
+
+  const handleLogout = () => {
+    logout();
+    history.push('/auth');
+  };
+
   return (
-    <nav>
-      <ul>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/">CoinByte</Link>
+      </div>
+      <ul className="navbar-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/dashboard">Dashboard</Link></li>
-	<li><Link to="/exchange">Exchange</Link></li>
+        <li><Link to="/exchange">Exchange</Link></li>
         <li><Link to="/wallet">Wallet</Link></li>
-        <li><Link to="/support">Support</Link></li>
         <li><Link to="/social">Social</Link></li>
-	<li><Link to="/exchange">Exchange</Link></li>
-      </ul>
-      <ul className="auth-links">
-        <li><Link to="/auth">Sign Up</Link></li>
-        <li><Link to="/auth">Login</Link></li>
+        <li><Link to="/support">Support</Link></li>
+        {isAuthenticated ? (
+          <li><button onClick={handleLogout}>Logout</button></li>
+        ) : (
+          <li><Link to="/auth">Login</Link></li>
+        )}
       </ul>
     </nav>
   );
