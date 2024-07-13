@@ -7,9 +7,19 @@
   border-radius: 4px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .dark-mode-toggle:hover {
   background-color: var(--link-hover-color);
+  transform: scale(1.05);
+}
+
+.dark-mode-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--link-color);
 }

@@ -1,4 +1,3 @@
-// DarkModeToggle.jsx
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './DarkModeToggle.css';
@@ -8,7 +7,7 @@ const DarkModeToggle = () => {
 
   return (
     <button onClick={toggleTheme} className="dark-mode-toggle">
-      {theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+      {theme === 'dark' ? '🌞 Light Mode' : '🌜 Dark Mode'}
     </button>
   );
 };

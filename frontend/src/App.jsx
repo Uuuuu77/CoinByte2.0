@@ -14,6 +14,7 @@ import SupportPage from './pages/SupportPage';
 import AuthPage from './pages/AuthPage';
 import NotFoundPage from './pages/NotFoundPage';
 import ThemeContextProvider from './contexts/ThemeContext';
+import DarkModeToggle from './components/Common/DarkModeToggle';
 import './App.css';
 import './styles/dark-mode.css';
 import './styles/global.css';

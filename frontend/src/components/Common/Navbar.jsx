@@ -18,8 +18,8 @@ const Navbar = () => {
         <li><Link to="/support">Support</Link></li>
       </ul>
       <div className="navbar-auth-links">
-        <Link to="/auth/signup">Signup</Link>
-        <Link to="/auth/login">Login</Link>
+	<li><Link to="/auth/signup">Signup</Link></li>
+        <li><Link to="/auth/login">Login</Link></li>
         <DarkModeToggle />
       </div>
     </nav>

@@ -10,7 +10,6 @@ const ThemeContextProvider = ({ children }) => {
   const toggleTheme = () => {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     setTheme(newTheme);
-    document.body.className = newTheme; // Apply theme class to body
   };
 
   // Save theme preference to local storage
