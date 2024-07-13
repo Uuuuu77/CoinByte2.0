@@ -12,15 +12,18 @@ const ThemeContextProvider = ({ children }) => {
     setTheme(newTheme);
   };
 
-  // Save theme preference to local storage
+  // Load saved theme from local storage on initial load
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
       setTheme(savedTheme);
       document.body.className = savedTheme; // Apply saved theme class to body
+    } else {
+      document.body.className = theme;
     }
-  }, []);
+  }, [theme]);
 
+  // Save theme preference to local storage and apply class to body
   useEffect(() => {
     localStorage.setItem('theme', theme);
     document.body.className = theme; // Apply theme class to body

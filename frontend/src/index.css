@@ -11,11 +11,14 @@
   --button-hover-bg-color: #187bcd;
 }
 
-body.light-mode {
+body.light {
   --main-bg-color: #ffffff;
   --main-text-color: #000000;
   --header-footer-bg-color: #f1f1f1;
   --sidebar-bg-color: #f1f1f1;
+  --button-bg-color: #1e90ff;
+  --button-text-color: #ffffff;
+  --button-hover-bg-color: #187bcd;
 }
 
 html, body {
