@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DarkModeToggle from './DarkModeToggle';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -17,8 +18,9 @@ const Navbar = () => {
         <li><Link to="/support">Support</Link></li>
       </ul>
       <div className="navbar-auth-links">
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
+        <Link to="/auth/signup">Signup</Link>
+        <Link to="/auth/login">Login</Link>
+        <DarkModeToggle />
       </div>
     </nav>
   );

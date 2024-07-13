@@ -7,8 +7,8 @@ const Footer = () => {
       <div className="footer-container">
         <p>&copy; 2024 CoinByte. All rights reserved.</p>
         <ul>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms of Service</a></li>
+          <li><a href="/privacy-policy">Privacy Policy</a></li>
+          <li><a href="/terms-of-service">Terms of Service</a></li>
         </ul>
         <div className="social-links">
           <img className="logo" src="./static/images/twitter.png" alt="Twitter" />
