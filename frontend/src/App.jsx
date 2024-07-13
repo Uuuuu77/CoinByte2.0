@@ -13,8 +13,7 @@ import SocialPage from './pages/SocialPage';
 import SupportPage from './pages/SupportPage';
 import AuthPage from './pages/AuthPage';
 import NotFoundPage from './pages/NotFoundPage';
-import ThemeContextProvider, { ThemeContext } from './contexts/ThemeContext';
-import DarkModeToggle from './components/Common/DarkModeToggle';
+import ThemeContextProvider from './contexts/ThemeContext';
 import './App.css';
 import './styles/dark-mode.css';
 import './styles/global.css';
@@ -27,7 +26,6 @@ const App = () => {
         <div className="container">
           <Navbar />
           <main>
-            <DarkModeToggle />
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/dashboard" component={DashboardPage} />
