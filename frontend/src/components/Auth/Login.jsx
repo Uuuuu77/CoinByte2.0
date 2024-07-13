@@ -9,6 +9,10 @@ const Login = () => {
   const [error, setError] = useState('');
   const history = useHistory();
 
+  /**
+   * Handles the form submission for user login.
+   * @param {Event} e - The form submission event.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {

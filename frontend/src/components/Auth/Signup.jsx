@@ -11,6 +11,10 @@ const Signup = () => {
   const [error, setError] = useState('');
   const history = useHistory();
 
+  /**
+   * Handles the form submission for user signup.
+   * @param {Event} e - The form submission event.
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {

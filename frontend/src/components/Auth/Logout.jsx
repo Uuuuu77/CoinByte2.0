@@ -5,6 +5,9 @@ import { logout } from '../../services/auth';
 const Logout = () => {
   const history = useHistory();
 
+  /**
+   * Logs out the user and redirects to the homepage.
+   */
   useEffect(() => {
     logout();
     history.push('/');
