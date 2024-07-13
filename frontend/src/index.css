@@ -29,4 +29,17 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+a {
+  color: var(--main-link-color);
+  text-decoration: none;
+}
+
+header, footer {
+  background-color: var(--header-footer-bg-color);
+  padding: 1rem;
+  text-align: center;
 }
