@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Common/Navbar';
-import Login from './components/Auth/Login';
 import Signup from './components/Auth/Signup';
+import Login from './components/Auth/Login';
+import Logout from './components/Auth/Logout';
 import Footer from './components/Common/Footer';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
@@ -15,6 +16,7 @@ import NotFoundPage from './pages/NotFoundPage';
 import ThemeContextProvider, { ThemeContext } from './contexts/ThemeContext';
 import DarkModeToggle from './components/Common/DarkModeToggle';
 import './App.css';
+import '../styles/AuthPage.css';
 
 const App = () => {
   return (
@@ -31,7 +33,9 @@ const App = () => {
               <Route path="/wallet" component={WalletPage} />
               <Route path="/social" component={SocialPage} />
               <Route path="/support" component={SupportPage} />
-              <Route path="/auth" component={AuthPage} />
+              <Route path="/auth/login" component={Login} />
+              <Route path="/auth/signup" component={Signup} />
+              <Route path="/auth/logout" component={Logout} />
               <Route component={NotFoundPage} />
             </Switch>
           </main>
