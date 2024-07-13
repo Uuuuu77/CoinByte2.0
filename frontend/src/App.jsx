@@ -16,7 +16,9 @@ import NotFoundPage from './pages/NotFoundPage';
 import ThemeContextProvider, { ThemeContext } from './contexts/ThemeContext';
 import DarkModeToggle from './components/Common/DarkModeToggle';
 import './App.css';
-import '../styles/AuthPage.css';
+import './styles/dark-mode.css';
+import './styles/global.css';
+import './styles/variables.css';
 
 const App = () => {
   return (
