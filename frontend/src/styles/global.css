@@ -10,6 +10,21 @@ body {
   font-family: Arial, sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -20,6 +35,7 @@ a {
 header, footer {
   background-color: var(--header-footer-bg-color);
   padding: 1rem;
+  text-align: center;
 }
 
 .container {
