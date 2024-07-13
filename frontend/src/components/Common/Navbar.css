@@ -37,6 +37,7 @@
 .navbar-auth-links {
   display: flex;
   gap: 1rem;
+  align-items: center;
 }
 
 .navbar-auth-links a {
