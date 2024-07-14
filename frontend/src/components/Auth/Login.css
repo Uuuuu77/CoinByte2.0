@@ -3,7 +3,8 @@
 /* Container for the login form */
 .auth-container {
   max-width: 400px;
-  margin: auto;
+  width: 100%;
+  margin: 5rem auto; /* Center the form vertically */
   padding: 2rem;
   background-color: var(--header-footer-bg-color);
   border-radius: 8px;
@@ -27,7 +28,7 @@
 /* Input field styling */
 .auth-container input {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem; /* Increase padding for a better look */
   margin-bottom: 1rem;
   border: none;
   border-radius: 4px;
@@ -38,7 +39,7 @@
 /* Button styling */
 .auth-container button {
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.75rem; /* Increase padding for a better look */
   background-color: var(--button-bg-color);
   border: none;
   border-radius: 4px;
