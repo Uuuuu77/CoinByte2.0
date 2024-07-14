@@ -7,9 +7,6 @@ const HowItWorks = () => {
   return (
     <div className="how-it-works">
       <div className="split-container">
-        <div className="split-image">
-          <img src={howItWorksImage} alt="How It Works Image" />
-        </div>
         <div className="split-text">
           <h2>How It Works</h2>
           <ol>
@@ -18,6 +15,9 @@ const HowItWorks = () => {
             <li>Start trading cryptocurrencies</li>
             <li>Withdraw cryptocurrencies into external wallets or bank account</li>
           </ol>
+        </div>
+	<div className="split-image">
+          <img src={howItWorksImage} alt="How It Works Image" />
         </div>
       </div>
     </div>
