@@ -5,6 +5,11 @@
   animation: fadeIn 1s ease-in;
 }
 
+.header-container {
+  margin-top: 0;
+  padding-top: 1rem;
+}
+
 .navigation-buttons {
   display: flex;
   justify-content: center;
@@ -72,8 +77,8 @@
 
 .newsletter-form button {
   padding: 0.75rem 1.5rem;
-  background-color: var(--button-color);
-  color: var(--main-bg-color);
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -81,7 +86,7 @@
 }
 
 .newsletter-form button:hover {
-  background-color: var(--button-hover-color);
+  background-color: var(--button-hover-bg-color);
 }
 
 @keyframes fadeIn {
