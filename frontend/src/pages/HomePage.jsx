@@ -9,10 +9,6 @@ import '../styles/HomePage.css';
 const HomePage = () => {
   return (
     <div className="home-page">
-      <Banner />
-      <Features />
-      <HowItWorks />
-      <Benefits />
       <header className="header-container">
         <h1>Welcome to CoinByte</h1>
         <p>Your one-stop cryptocurrency exchange platform.</p>
@@ -24,6 +20,10 @@ const HomePage = () => {
           <Link to="/support" className="nav-link">Support</Link>
         </div>
       </header>
+      <Banner />
+      <Features />
+      <HowItWorks />
+      <Benefits />
       <section className="cta-section">
         <h2>Join Us Today!</h2>
         <p>Sign up now and start trading cryptocurrencies with ease.</p>
