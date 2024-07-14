@@ -5,7 +5,7 @@ import Banner from './Banner';
 import Features from './Features';
 import HowItWorks from './HowItWorks';
 import Benefits from './Benefits';
-import './HomePage.css';
+import './Home.css';
 
 const HomePage = () => {
   return (
