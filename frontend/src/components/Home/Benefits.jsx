@@ -1,26 +1,26 @@
-// Benefits.jsx
+// Features.jsx
 import React from 'react';
-import './Benefits.css';
+import './Features.css';
 
-const Benefits = () => {
+const Features = () => {
   return (
-    <div className="benefits">
+    <div className="features">
       <div className="split-container">
-        <div className="split-image">
-          <img src="path/to/your/image.jpg" alt="Benefits Image" />
-        </div>
         <div className="split-text">
-          <h2>Benefits of Using CoinByte</h2>
+          <h2>Key Features</h2>
           <ul>
-            <li>Low transaction fees</li>
-            <li>Wide range of supported cryptocurrencies</li>
-            <li>Fast and secure transactions</li>
-            <li>Professional customer support</li>
+            <li>Secure Trading Platform</li>
+            <li>Real-Time Market Data</li>
+            <li>User-Friendly Interface</li>
+            <li>24/7 Customer Support</li>
           </ul>
+        </div>
+        <div className="split-image">
+          <img src="../assets/images/features-image.jpeg" alt="Features Image" />
         </div>
       </div>
     </div>
   );
 };
 
-export default Benefits;
+export default Features;
