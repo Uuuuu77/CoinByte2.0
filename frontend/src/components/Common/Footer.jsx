@@ -11,8 +11,8 @@ const Footer = () => {
           <li><a href="/terms-of-service">Terms of Service</a></li>
         </ul>
         <div className="social-links">
-          <img className="logo" src="./static/images/twitter.png" alt="Twitter" />
-          <img className="logo" src="./static/images/linkedin.png" alt="LinkedIn" />
+          <img className="logo" src="../../assets/images/twitter.png" alt="Twitter" />
+          <img className="logo" src="../../assets/images/linkedin.png" alt="LinkedIn" />
         </div>
       </div>
     </footer>
