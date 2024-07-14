@@ -1,13 +1,13 @@
-// src/components/Home/Benefits.jsx
+// Benefits.jsx
 import React from 'react';
 import './Benefits.css';
 
 const Benefits = () => {
   return (
-    <section className="benefits">
+    <div className="benefits">
       <div className="split-container">
         <div className="split-image">
-          <img src="./static/images/benefits-image.png" alt="Benefits Image" />
+          <img src="path/to/your/image.jpg" alt="Benefits Image" />
         </div>
         <div className="split-text">
           <h2>Benefits of Using CoinByte</h2>
@@ -19,7 +19,7 @@ const Benefits = () => {
           </ul>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

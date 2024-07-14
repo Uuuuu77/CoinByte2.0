@@ -1,14 +1,11 @@
-// src/components/Home/Features.jsx
+// Features.jsx
 import React from 'react';
 import './Features.css';
 
 const Features = () => {
   return (
-    <section className="features">
+    <div className="features">
       <div className="split-container">
-        <div className="split-image">
-          <img src="./static/images/features-image.jpeg" alt="Features Image" />
-        </div>
         <div className="split-text">
           <h2>Key Features</h2>
           <ul>
@@ -18,8 +15,11 @@ const Features = () => {
             <li>24/7 Customer Support</li>
           </ul>
         </div>
+        <div className="split-image">
+          <img src="path/to/your/image.jpg" alt="Features Image" />
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
