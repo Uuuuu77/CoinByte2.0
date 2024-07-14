@@ -7,6 +7,9 @@ const Benefits = () => {
   return (
     <div className="benefits">
       <div className="split-container">
+	<div className="split-image">
+          <img src={benefitsImage} alt="Benefits Image" />
+        </div>
         <div className="split-text">
           <h2>Benefits of Using CoinByte</h2>
           <ul>
@@ -15,9 +18,6 @@ const Benefits = () => {
             <li>Fast and secure transactions</li>
             <li>Professional customer support</li>
           </ul>
-        </div>
-        <div className="split-image">
-          <img src={benefitsImage} alt="Benefits Image" />
         </div>
       </div>
     </div>

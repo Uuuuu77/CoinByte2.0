@@ -10,6 +10,7 @@
 .how-it-works .split-text {
   flex: 1;
   min-width: 300px;
+  list-style: none;
 }
 
 .how-it-works .split-image {

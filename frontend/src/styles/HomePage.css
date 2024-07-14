@@ -25,7 +25,12 @@
   transform: scale(1.05);
 }
 
-.features-section, .how-it-works-section, .benefits-section, .cta-section, .testimonials-section, .newsletter-section {
+.features-section,
+.how-it-works-section,
+.benefits-section,
+.cta-section,
+.testimonials-section,
+.newsletter-section {
   margin-top: 2rem;
   padding: 2rem;
   background-color: var(--section-bg-color);

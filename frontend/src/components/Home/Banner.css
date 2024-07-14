@@ -10,6 +10,7 @@
 .banner .split-text {
   flex: 1;
   min-width: 300px;
+  list-style: none; /* Remove list style */
 }
 
 .banner .split-image {

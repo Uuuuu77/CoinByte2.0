@@ -33,10 +33,10 @@ const HomePage = () => {
       <section className="testimonials-section">
         <h2>What Our Users Say</h2>
         <div className="testimonial">
-          <p>"CoinByte made crypto trading so much easier and secure. Highly recommend!" - User A</p>
+          <p>"CoinByte made crypto trading so much easier and secure. Highly recommend!" - John Doe</p>
         </div>
         <div className="testimonial">
-          <p>"Great platform with excellent customer support." - User B</p>
+          <p>"Great platform with excellent customer support." - Richard Roe</p>
         </div>
       </section>
       <section className="newsletter-section">
