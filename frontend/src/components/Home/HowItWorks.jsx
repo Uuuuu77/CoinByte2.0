@@ -1,7 +1,7 @@
 // HowItWorks.jsx
 import React from 'react';
 import './HowItWorks.css';
-import how-it-worksImage from '../../assets/images/how-it-works-image.jpeg';
+import howitworksImage from '../../assets/images/how-it-works-image.jpeg';
 
 const HowItWorks = () => {
   return (
@@ -17,7 +17,7 @@ const HowItWorks = () => {
           </ol>
         </div>
         <div className="split-image">
-          <img src={how-it-worksImage} alt="How It Works Image" />
+          <img src={howitworksImage} alt="How It Works Image" />
         </div>
       </div>
     </div>
