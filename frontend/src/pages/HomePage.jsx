@@ -13,6 +13,17 @@ const HomePage = () => {
       <Features />
       <HowItWorks />
       <Benefits />
+      <header className="header-container">
+        <h1>Welcome to CoinByte</h1>
+        <p>Your one-stop cryptocurrency exchange platform.</p>
+        <div className="navigation-buttons">
+          <Link to="/dashboard" className="nav-link">Dashboard</Link>
+          <Link to="/exchange" className="nav-link">Exchange</Link>
+          <Link to="/wallet" className="nav-link">Wallet</Link>
+          <Link to="/social" className="nav-link">Social</Link>
+          <Link to="/support" className="nav-link">Support</Link>
+        </div>
+      </header>
       <section className="cta-section">
         <h2>Join Us Today!</h2>
         <p>Sign up now and start trading cryptocurrencies with ease.</p>
