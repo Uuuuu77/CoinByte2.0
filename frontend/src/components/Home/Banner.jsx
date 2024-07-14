@@ -1,6 +1,7 @@
 // Banner.jsx
 import React from 'react';
 import './Banner.css';
+import bannerImage from '../../assets/images/welcome-image.jpeg';
 
 const Banner = () => {
   return (
@@ -11,7 +12,7 @@ const Banner = () => {
           <p>Experience seamless cryptocurrency trading with CoinByte. Buy, sell, and trade various cryptocurrencies with ease.</p>
         </div>
         <div className="split-image">
-          <img src="../../assets/images/welcome-image.jpeg" alt="Banner Image" />
+          <img src={bannerImage} alt="Banner Image" />
         </div>
       </div>
     </div>

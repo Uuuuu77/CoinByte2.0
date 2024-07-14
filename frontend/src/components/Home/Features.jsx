@@ -1,6 +1,7 @@
 // Features.jsx
 import React from 'react';
 import './Features.css';
+import featuresImage from '../../assets/images/features-image.jpeg';
 
 const Features = () => {
   return (
@@ -16,7 +17,7 @@ const Features = () => {
           </ul>
         </div>
         <div className="split-image">
-          <img src="path/to/your/image.jpg" alt="Features Image" />
+          <img src={featuresImage} alt="Features Image" />
         </div>
       </div>
     </div>

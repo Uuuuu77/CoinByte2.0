@@ -1,7 +1,7 @@
 /* HomePage.css */
 .home-page {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1rem;
   animation: fadeIn 1s ease-in;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .nav-link {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.25rem;
   background-color: var(--main-link-color);
   color: var(--main-bg-color);
   border-radius: 5px;
@@ -22,11 +22,11 @@
 }
 
 .nav-link:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .features-section, .how-it-works-section, .benefits-section, .cta-section, .testimonials-section, .newsletter-section {
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding: 2rem;
   background-color: var(--section-bg-color);
   border-radius: 10px;
@@ -60,13 +60,13 @@
 }
 
 .newsletter-form input {
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid var(--input-border-color);
   border-radius: 5px;
 }
 
 .newsletter-form button {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--button-color);
   color: var(--main-bg-color);
   border: none;
