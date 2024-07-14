@@ -7,6 +7,9 @@ const Features = () => {
   return (
     <div className="features">
       <div className="split-container">
+	<div className="split-image">
+          <img src={featuresImage} alt="Features Image" />
+        </div>
         <div className="split-text">
           <h2>Key Features</h2>
           <ul>
@@ -15,9 +18,6 @@ const Features = () => {
             <li>User-Friendly Interface</li>
             <li>24/7 Customer Support</li>
           </ul>
-        </div>
-        <div className="split-image">
-          <img src={featuresImage} alt="Features Image" />
         </div>
       </div>
     </div>

@@ -1,16 +1,19 @@
 /* Features.css */
+.features {
+  background-color: #f7f7f7;
+  padding: 2rem;
+}
+
 .features .split-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2rem;
 }
 
 .features .split-text {
   flex: 1;
   min-width: 300px;
-  list-style: none;
 }
 
 .features .split-image {
@@ -22,4 +25,9 @@
 .features .split-image img {
   max-width: 100%;
   height: auto;
+}
+
+.features .split-text ul {
+  list-style: none;
+  padding-left: 0;
 }

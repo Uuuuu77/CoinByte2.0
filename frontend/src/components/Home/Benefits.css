@@ -1,16 +1,19 @@
 /* Benefits.css */
+.benefits {
+  background-color: #eaeaea;
+  padding: 2rem;
+}
+
 .benefits .split-container {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 2rem;
 }
 
 .benefits .split-text {
   flex: 1;
   min-width: 300px;
-  list-style: none;
 }
 
 .benefits .split-image {
@@ -22,4 +25,9 @@
 .benefits .split-image img {
   max-width: 100%;
   height: auto;
+}
+
+.benefits .split-text ul {
+  list-style: none;
+  padding-left: 0;
 }
