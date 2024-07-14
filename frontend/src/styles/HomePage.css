@@ -25,6 +25,60 @@
   transform: scale(1.1);
 }
 
+.features-section, .how-it-works-section, .benefits-section, .cta-section, .testimonials-section, .newsletter-section {
+  margin-top: 4rem;
+  padding: 2rem;
+  background-color: var(--section-bg-color);
+  border-radius: 10px;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  background-color: var(--cta-button-color);
+  color: var(--main-bg-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.cta-button:hover {
+  background-color: var(--cta-button-hover-color);
+}
+
+.testimonial {
+  margin-top: 2rem;
+  font-style: italic;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.newsletter-form input {
+  padding: 0.5rem;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
+}
+
+.newsletter-form button {
+  padding: 0.5rem 1rem;
+  background-color: var(--button-color);
+  color: var(--main-bg-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.newsletter-form button:hover {
+  background-color: var(--button-hover-color);
+}
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

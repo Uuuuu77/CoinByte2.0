@@ -1,0 +1,24 @@
+/* Banner.css */
+.banner .split-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.banner .split-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.banner .split-image {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.banner .split-image img {
+  max-width: 100%;
+  height: auto;
+}
