@@ -1,5 +1,6 @@
 /* index.css */
 
+/* CSS variables for dark mode */
 :root {
   --main-bg-color: #121212;
   --main-text-color: #ffffff;
@@ -11,6 +12,7 @@
   --button-hover-bg-color: #187bcd;
 }
 
+/* CSS variables for light mode */
 body.light {
   --main-bg-color: #ffffff;
   --main-text-color: #000000;
@@ -21,6 +23,7 @@ body.light {
   --button-hover-bg-color: #187bcd;
 }
 
+/* General body and HTML styling */
 html, body {
   margin: 0;
   padding: 0;
@@ -28,6 +31,7 @@ html, body {
   height: 100%;
 }
 
+/* Root element styling */
 #root {
   display: flex;
   flex-direction: column;
@@ -36,11 +40,13 @@ html, body {
   color: var(--main-text-color);
 }
 
+/* Link styling */
 a {
   color: var(--main-link-color);
   text-decoration: none;
 }
 
+/* Header and footer styling */
 header, footer {
   background-color: var(--header-footer-bg-color);
   padding: 1rem;
