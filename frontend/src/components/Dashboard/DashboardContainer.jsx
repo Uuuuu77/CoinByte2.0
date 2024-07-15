@@ -1,18 +1,22 @@
 import React from 'react';
+import DashboardHeader from './DashboardHeader';
+import Sidebar from './Sidebar';
 import Portfolio from './Portfolio';
 import MarketData from './MarketData';
 import RecentTransactions from './RecentTransactions';
 import ActivityFeed from './ActivityFeed';
 import PerformanceChart from './PerformanceChart';
 import NewsFeed from './NewsFeed';
-import './Dashboard.css';
+import './DashboardContainer.css';
 
-const Dashboard = () => {
+const DashboardContainer = () => {
   return (
-    <div className="dashboard">
-      <div className="dashboard-content">
-        <PerformanceChart />
-        <div className="dashboard-widgets">
+    <div className="dashboard-container">
+      <DashboardHeader />
+      <div className="dashboard-main">
+        <Sidebar />
+        <div className="dashboard-content">
+          <PerformanceChart />
           <Portfolio />
           <MarketData />
           <RecentTransactions />
@@ -24,4 +28,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardContainer;

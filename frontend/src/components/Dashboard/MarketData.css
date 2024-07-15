@@ -1,0 +1,25 @@
+.market-data {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in;
+}
+
+.market-data h2 {
+  margin-bottom: 10px;
+}
+
+.market-data ul {
+  list-style: none;
+  padding: 0;
+}
+
+.market-data-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.market-data-item:last-child {
+  border-bottom: none;
+}

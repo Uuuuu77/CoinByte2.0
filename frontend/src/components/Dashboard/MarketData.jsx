@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './MarketData.css';
 
 const MarketData = () => {
   const [marketData, setMarketData] = useState([]);
@@ -22,7 +23,7 @@ const MarketData = () => {
       <h2>Market Data</h2>
       <ul>
         {marketData.map((data) => (
-          <li key={data.id}>
+          <li key={data.id} className="market-data-item">
             <p>{data.name}: {data.price}</p>
           </li>
         ))}

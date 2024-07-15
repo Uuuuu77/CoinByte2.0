@@ -1,0 +1,17 @@
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info p {
+  margin-right: 10px;
+}

@@ -1,7 +1,42 @@
 /* DashboardPage.css */
 .dashboard-page {
   padding: 2rem;
+  background-color: #f5f7fa;
   animation: fadeIn 1s ease-in;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.dashboard-widgets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dashboard-left, .dashboard-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.dashboard-left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-right {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 @keyframes fadeIn {

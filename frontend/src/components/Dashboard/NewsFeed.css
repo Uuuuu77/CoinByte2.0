@@ -1,0 +1,35 @@
+.news-feed {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in;
+}
+
+.news-feed h2 {
+  margin-bottom: 10px;
+}
+
+.news-feed ul {
+  list-style: none;
+  padding: 0;
+}
+
+.news-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-item a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s;
+}
+
+.news-item a:hover {
+  color: #007bff;
+}

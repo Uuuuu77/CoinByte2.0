@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Portfolio.css';
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState([]);
@@ -22,7 +23,7 @@ const Portfolio = () => {
       <h2>Your Portfolio</h2>
       <ul>
         {portfolio.map((item) => (
-          <li key={item.id}>
+          <li key={item.id} className="portfolio-item">
             <p>{item.name}: {item.amount}</p>
           </li>
         ))}
