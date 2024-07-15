@@ -1,8 +1,10 @@
+// Signup.jsx
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { signup } from '../../services/auth';
 import './Signup.css';
 
+// Component for user signup
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -18,21 +20,21 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError('Passwords do not match'); // Display error message if passwords do not match
       return;
     }
     try {
-      await signup({ email, password, userType });
-      history.push('/dashboard');
+      await signup({ email, password, userType }); // Attempt to create a new user account
+      history.push('/dashboard'); // Redirect to dashboard on successful signup
     } catch (err) {
-      setError('Failed to create an account');
+      setError('Failed to create an account'); // Display error message if signup fails
     }
   };
 
   return (
     <div className="auth-container">
       <h2>Sign Up</h2>
-      {error && <p className="error">{error}</p>}
+      {error && <p className="error">{error}</p>} {/* Display error message if there is an error */}
       <form onSubmit={handleSubmit}>
         <label>Email:</label>
         <input
