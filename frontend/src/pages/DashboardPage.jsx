@@ -6,7 +6,7 @@ import RecentTransactions from '../components/Dashboard/RecentTransactions';
 import ActivityFeed from '../components/Dashboard/ActivityFeed';
 import PerformanceChart from '../components/Dashboard/PerformanceChart';
 import NewsFeed from '../components/Dashboard/NewsFeed';
-import '../styles/Dashboard.css';
+import '../styles/DashboardPage.css';
 
 const Dashboard = () => {
   return (
