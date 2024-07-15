@@ -1,12 +1,12 @@
 // Dashboard.jsx
 import React from 'react';
-import Portfolio from './Portfolio';
-import MarketData from './MarketData';
-import RecentTransactions from './RecentTransactions';
-import ActivityFeed from './ActivityFeed';
-import PerformanceChart from './PerformanceChart';
-import NewsFeed from './NewsFeed';
-import '../../styles/Dashboard.css';
+import Portfolio from '../components/Dashboard/Portfolio';
+import MarketData from '../components/Dashboard/MarketData';
+import RecentTransactions from '../components/Dashboard/RecentTransactions';
+import ActivityFeed from '../components/Dashboard/ActivityFeed';
+import PerformanceChart from '../components/Dashboard/PerformanceChart';
+import NewsFeed from '../components/Dashboard/NewsFeed';
+import '../styles/Dashboard.css';
 
 const Dashboard = () => {
   return (
