@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
-  background-color: var(--sidebar-bg-color);
-  color: var(--sidebar-text-color);
+  background-color: var(--sidebar-bg-color); /* Ensure --sidebar-bg-color is defined */
+  color: var(--sidebar-text-color); /* Ensure --sidebar-text-color is defined */
   padding: 20px;
 }
 
@@ -15,11 +15,11 @@
 }
 
 .sidebar a {
-  color: var(--sidebar-link-color);
+  color: var(--sidebar-link-color); /* Ensure --sidebar-link-color is defined */
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .sidebar a:hover {
-  color: var(--sidebar-link-hover-color);
+  color: var(--sidebar-link-hover-color); /* Ensure --sidebar-link-hover-color is defined */
 }
