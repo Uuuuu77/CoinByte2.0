@@ -1,4 +1,4 @@
-// Dashboard.jsx
+// DashboardPage.jsx
 import React from 'react';
 import Portfolio from '../components/Dashboard/Portfolio';
 import MarketData from '../components/Dashboard/MarketData';
@@ -8,7 +8,7 @@ import PerformanceChart from '../components/Dashboard/PerformanceChart';
 import NewsFeed from '../components/Dashboard/NewsFeed';
 import '../styles/DashboardPage.css';
 
-const Dashboard = () => {
+const DashboardPage = () => {
   return (
     <div className="dashboard">
       <div className="dashboard-header">
@@ -42,4 +42,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default DashboardPage;
