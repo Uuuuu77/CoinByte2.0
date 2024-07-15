@@ -1,3 +1,4 @@
+// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Common/Navbar';
@@ -18,12 +19,13 @@ import './styles/dark-mode.css';
 import './styles/global.css';
 import './styles/variables.css';
 
+// Main application component
 const App = () => {
   return (
     <ThemeContextProvider>
       <Router>
         <div className="container">
-          <Navbar />
+          <Navbar /> {/* Navigation bar component */}
           <main>
             <Switch>
               <Route exact path="/" component={HomePage} />
@@ -35,10 +37,10 @@ const App = () => {
               <Route path="/auth/login" component={Login} />
               <Route path="/auth/signup" component={Signup} />
               <Route path="/auth/logout" component={Logout} />
-              <Route component={NotFoundPage} />
+              <Route component={NotFoundPage} /> {/* Fallback for undefined routes */}
             </Switch>
           </main>
-          <Footer />
+          <Footer /> {/* Footer component */}
         </div>
       </Router>
     </ThemeContextProvider>
