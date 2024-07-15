@@ -1,3 +1,10 @@
+/**
+ * Footer.jsx
+ *
+ * Footer component displaying copyright information, privacy policy, terms of service,
+ * and social media links.
+ */
+
 import React from 'react';
 import './Footer.css';
 

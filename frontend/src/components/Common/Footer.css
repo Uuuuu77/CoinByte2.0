@@ -1,4 +1,7 @@
-/* Footer.css */
+/* Footer.css
+ *
+ * Styles for the Footer component.
+ */
 
 .footer-container {
   background-color: var(--header-footer-bg-color);

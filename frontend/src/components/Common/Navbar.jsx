@@ -1,3 +1,11 @@
+/**
+ * Navbar.jsx
+ *
+ * Navigation bar component with links to different sections of the application,
+ * including Home, Dashboard, Exchange, Wallet, Social, and Support. Also includes
+ * authentication links for Signup and Login, and a DarkModeToggle component.
+ */
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DarkModeToggle from './DarkModeToggle';
@@ -18,7 +26,7 @@ const Navbar = () => {
         <li><Link to="/support">Support</Link></li>
       </ul>
       <div className="navbar-auth-links">
-	<Link to="/auth/signup">Signup</Link>
+        <Link to="/auth/signup">Signup</Link>
         <Link to="/auth/login">Login</Link>
         <DarkModeToggle />
       </div>

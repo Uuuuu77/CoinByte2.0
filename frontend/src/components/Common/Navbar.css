@@ -1,4 +1,7 @@
-/* Navbar.css */
+/* Navbar.css
+ *
+ * Styles for the Navbar component.
+ */
 
 .navbar {
   background-color: var(--header-footer-bg-color);

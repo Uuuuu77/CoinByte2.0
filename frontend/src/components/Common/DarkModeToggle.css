@@ -1,4 +1,7 @@
-/* DarkModeToggle.css */
+/* DarkModeToggle.css
+ *
+ * Styles for the DarkModeToggle component.
+ */
 
 .dark-mode-toggle {
   background-color: var(--link-color);
