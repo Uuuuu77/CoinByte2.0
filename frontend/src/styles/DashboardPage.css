@@ -2,13 +2,8 @@
 
 .dashboard-page {
   display: flex;
+  position: relative;
   height: 100vh;
-}
-
-.dashboard-content {
-  display: flex;
-  flex: 1;
-  transition: margin-left 0.3s ease;
 }
 
 .dashboard-main {
@@ -18,6 +13,11 @@
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   animation: fadeIn 1s ease-in;
+  overflow: auto;
+}
+
+.sidebar-open .dashboard-main {
+  margin-left: 250px;
 }
 
 .dashboard-header {

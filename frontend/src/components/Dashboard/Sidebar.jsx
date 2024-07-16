@@ -6,7 +6,7 @@ import './Sidebar.css';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <>
+    <div className="sidebar-container">
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         <FaBars />
       </button>
@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <li><Link to="/support">Support</Link></li>
         </ul>
       </div>
-    </>
+    </div>
   );
 };
 

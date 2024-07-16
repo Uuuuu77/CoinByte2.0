@@ -1,11 +1,16 @@
 /* Sidebar.css */
 
+.sidebar-container {
+  position: relative;
+  z-index: 1; /* Ensure it stays above the main content but below navigation and footer */
+}
+
 .sidebar {
   width: 250px;
   height: 100vh;
   background-color: var(--sidebar-bg-color);
   transition: transform 0.3s ease;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   transform: translateX(-100%);
@@ -38,7 +43,7 @@
 
 /* Sidebar toggle button */
 .sidebar-toggle {
-  position: fixed;
+  position: absolute;
   top: 20px;
   left: 20px;
   background: none;
@@ -57,4 +62,3 @@
 .sidebar-open .dashboard-main {
   margin-left: 250px;
 }
-

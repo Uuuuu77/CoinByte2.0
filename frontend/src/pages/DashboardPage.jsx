@@ -1,3 +1,4 @@
+// DashboardPage.jsx
 import React, { useState } from 'react';
 import Sidebar from '../components/Dashboard/Sidebar';
 import Portfolio from '../components/Dashboard/Portfolio';
