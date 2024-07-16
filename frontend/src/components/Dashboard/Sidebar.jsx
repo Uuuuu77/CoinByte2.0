@@ -1,12 +1,12 @@
 // Sidebar.jsx
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa';
 import './Sidebar.css';
 
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
-    <div className={`dashboard-container ${isOpen ? 'sidebar-open' : ''}`}>
+    <>
       <button className="sidebar-toggle" onClick={toggleSidebar}>
         <FaBars />
       </button>
@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
           <li><Link to="/support">Support</Link></li>
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 

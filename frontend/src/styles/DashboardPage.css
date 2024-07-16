@@ -2,7 +2,6 @@
 
 .dashboard-page {
   display: flex;
-  flex-direction: column;
   height: 100vh;
 }
 
@@ -10,11 +9,6 @@
   display: flex;
   flex: 1;
   transition: margin-left 0.3s ease;
-  overflow: hidden;
-}
-
-.sidebar-open .dashboard-main {
-  margin-left: 250px;
 }
 
 .dashboard-main {

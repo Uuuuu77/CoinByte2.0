@@ -16,35 +16,33 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="dashboard-page">
-      <div className="dashboard-content">
-        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
-        <div className="dashboard-main">
-          <div className="dashboard-header">
-            <h1>Dashboard</h1>
-          </div>
-          <div className="dashboard-widgets">
-            <div className="dashboard-left">
-              <div className="widget">
-                <Portfolio />
-              </div>
-              <div className="widget">
-                <PerformanceChart />
-              </div>
-              <div className="widget">
-                <RecentTransactions />
-              </div>
+    <div className={`dashboard-page ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+      <div className="dashboard-main">
+        <div className="dashboard-header">
+          <h1>Dashboard</h1>
+        </div>
+        <div className="dashboard-widgets">
+          <div className="dashboard-left">
+            <div className="widget">
+              <Portfolio />
             </div>
-            <div className="dashboard-right">
-              <div className="widget">
-                <MarketData />
-              </div>
-              <div className="widget">
-                <ActivityFeed />
-              </div>
-              <div className="widget">
-                <NewsFeed />
-              </div>
+            <div className="widget">
+              <PerformanceChart />
+            </div>
+            <div className="widget">
+              <RecentTransactions />
+            </div>
+          </div>
+          <div className="dashboard-right">
+            <div className="widget">
+              <MarketData />
+            </div>
+            <div className="widget">
+              <ActivityFeed />
+            </div>
+            <div className="widget">
+              <NewsFeed />
             </div>
           </div>
         </div>
