@@ -1,5 +1,6 @@
 // DashboardPage.jsx
 import React from 'react';
+import Sidebar from '../components/Dashboard/Sidebar';
 import Portfolio from '../components/Dashboard/Portfolio';
 import MarketData from '../components/Dashboard/MarketData';
 import RecentTransactions from '../components/Dashboard/RecentTransactions';
