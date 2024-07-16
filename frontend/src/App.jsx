@@ -5,7 +5,7 @@ import Navbar from './components/Common/Navbar';
 import Footer from './components/Common/Footer';
 import HomePage from './pages/HomePage';
 import DashboardPage from './pages/DashboardPage';
-import ExchangePage from './pages/ExchangePage';
+import TradePage from './pages/TradePage';
 import WalletPage from './pages/WalletPage';
 import SocialPage from './pages/SocialPage';
 import SupportPage from './pages/SupportPage';
