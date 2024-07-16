@@ -1,0 +1,42 @@
+/* TradeForm.css */
+
+.trade-form {
+  background-color: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trade-form h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.trade-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.trade-form label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.trade-form input, .trade-form select, .trade-form button {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.trade-form button {
+  background-color: var(--button-background);
+  color: var(--button-text);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.trade-form button:hover {
+  background-color: var(--button-background-hover);
+}

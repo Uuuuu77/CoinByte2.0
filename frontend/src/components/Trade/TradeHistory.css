@@ -1,0 +1,32 @@
+/* TradeHistory.css */
+
+.trade-history {
+  background-color: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trade-history h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.trade-history table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.trade-history th, .trade-history td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trade-history th {
+  background-color: var(--background-tertiary);
+}
+
+.trade-history td {
+  color: var(--text-primary);
+}

@@ -1,0 +1,25 @@
+/* TradePage.css */
+
+.trade-page {
+  padding: 2rem;
+  animation: fadeIn 1s ease-in;
+}
+
+.trade-forms {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.trade-form, .premium-trade-form {
+  width: 48%;
+}
+
+.order-book, .trade-history, .trade-stats {
+  margin-top: 2rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

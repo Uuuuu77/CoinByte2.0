@@ -1,7 +1,8 @@
+// OrderBook.jsx
 import React from 'react';
+import './OrderBook.css';
 
 const OrderBook = () => {
-  // Sample order data
   const orders = [
     { price: 50000, amount: 0.5 },
     { price: 49500, amount: 1.0 },

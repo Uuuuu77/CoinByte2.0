@@ -1,4 +1,6 @@
+// TradeForm.jsx
 import React, { useState } from 'react';
+import './TradeForm.css';
 
 const TradeForm = () => {
   const [amount, setAmount] = useState('');
@@ -6,7 +8,6 @@ const TradeForm = () => {
 
   const handleTrade = (e) => {
     e.preventDefault();
-    // Handle trade logic here
     console.log(`Trading ${amount} at ${price}`);
   };
 

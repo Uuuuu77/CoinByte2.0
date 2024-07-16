@@ -1,0 +1,32 @@
+/* OrderBook.css */
+
+.order-book {
+  background-color: var(--background-secondary);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.order-book h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.order-book table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-book th, .order-book td {
+  padding: 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.order-book th {
+  background-color: var(--background-tertiary);
+}
+
+.order-book td {
+  color: var(--text-primary);
+}
