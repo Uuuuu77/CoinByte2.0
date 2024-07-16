@@ -1,5 +1,4 @@
-// DashboardPage.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../components/Dashboard/Sidebar';
 import Portfolio from '../components/Dashboard/Portfolio';
 import MarketData from '../components/Dashboard/MarketData';
@@ -10,9 +9,15 @@ import NewsFeed from '../components/Dashboard/NewsFeed';
 import '../styles/DashboardPage.css';
 
 const DashboardPage = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="dashboard-container">
-      <Sidebar /> {/* Include the Sidebar */}
+    <div className={`dashboard-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
+      <Sidebar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
       <div className="dashboard-content">
         <div className="dashboard-header">
           <h1>Dashboard</h1>

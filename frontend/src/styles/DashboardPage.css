@@ -5,7 +5,7 @@
   transition: margin-left 0.3s ease;
 }
 
-.sidebar.open + .dashboard-content {
+.dashboard-container.sidebar-open .dashboard-content {
   margin-left: 250px;
 }
 

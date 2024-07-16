@@ -1,13 +1,9 @@
 /* Sidebar.css */
 
-.sidebar-container {
-  position: relative;
-}
-
 .sidebar {
   width: 250px;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: -250px;
   background-color: var(--sidebar-bg-color);
@@ -19,11 +15,15 @@
   left: 0;
 }
 
+.sidebar h2 {
+  color: var(--main-text-color);
+  text-align: center;
+  margin-top: 1rem;
+}
+
 .sidebar ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  margin-top: 50px; /* Adjust this to avoid overlapping with the toggle button */
 }
 
 .sidebar ul li {
@@ -43,8 +43,8 @@
 
 /* Sidebar toggle button */
 .sidebar-toggle {
-  position: absolute;
-  top: 50px; /* Adjust to position below the navigation */
+  position: fixed;
+  top: 20px;
   left: 20px;
   background: none;
   border: none;
@@ -59,13 +59,13 @@
 }
 
 /* Adjust content for when sidebar is open */
-.sidebar.open + .dashboard-content {
+.dashboard-container.sidebar-open .dashboard-content {
   margin-left: 250px;
 }
 
 .dashboard-content {
   transition: margin-left 0.3s ease;
-  width: calc(100% - 250px);
-  margin-left: 250px;
+  width: 100%;
+  margin-left: 0;
   padding: 2rem;
 }
