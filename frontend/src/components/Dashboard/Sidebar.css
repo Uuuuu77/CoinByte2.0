@@ -3,11 +3,11 @@
 .sidebar {
   position: fixed;
   left: 0;
-  top: 0;
-  height: 100%;
+  top: 4rem; /* Adjust based on your header height */
+  height: calc(100% - 4rem); /* Adjust to fit your layout */
   width: 250px;
-  background-color: var(--sidebar-bg-color); /* Ensure --sidebar-bg-color is defined */
-  color: var(--sidebar-text-color); /* Ensure --sidebar-text-color is defined */
+  background-color: var(--sidebar-bg-color);
+  color: var(--sidebar-text-color);
   padding: 20px;
   transform: translateX(-250px);
   transition: transform 0.3s ease;
@@ -20,8 +20,8 @@
 
 .sidebar-toggle {
   position: absolute;
-  top: 20px;
-  right: -50px;
+  top: 20px; /* Adjust as needed */
+  right: 20px; /* Adjust as needed */
   background-color: var(--sidebar-bg-color);
   color: var(--sidebar-text-color);
   border: none;
@@ -31,7 +31,7 @@
 }
 
 .sidebar-toggle:hover {
-  background-color: var(--sidebar-hover-bg-color); /* Ensure --sidebar-hover-bg-color is defined */
+  background-color: var(--sidebar-hover-bg-color);
 }
 
 .sidebar ul {
@@ -45,19 +45,19 @@
 }
 
 .sidebar a {
-  color: var(--sidebar-link-color); /* Ensure --sidebar-link-color is defined */
+  color: var(--sidebar-link-color);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .sidebar a:hover {
-  color: var(--sidebar-link-hover-color); /* Ensure --sidebar-link-hover-color is defined */
+  color: var(--sidebar-link-hover-color);
 }
 
 /* Light mode specific styles */
 .light-mode .sidebar {
-  background-color: var(--sidebar-bg-light-color); /* Ensure --sidebar-bg-light-color is defined */
-  color: var(--sidebar-text-light-color); /* Ensure --sidebar-text-light-color is defined */
+  background-color: var(--sidebar-bg-light-color);
+  color: var(--sidebar-text-light-color);
 }
 
 .light-mode .sidebar-toggle {
@@ -66,9 +66,9 @@
 }
 
 .light-mode .sidebar a {
-  color: var(--sidebar-link-light-color); /* Ensure --sidebar-link-light-color is defined */
+  color: var(--sidebar-link-light-color);
 }
 
 .light-mode .sidebar a:hover {
-  color: var(--sidebar-link-hover-light-color); /* Ensure --sidebar-link-hover-light-color is defined */
+  color: var(--sidebar-link-hover-light-color);
 }
