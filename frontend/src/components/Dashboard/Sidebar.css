@@ -1,74 +1,71 @@
 /* Sidebar.css */
 
 .sidebar {
-  position: fixed;
-  left: 0;
-  top: 4rem; /* Adjust based on your header height */
-  height: calc(100% - 4rem); /* Adjust to fit your layout */
   width: 250px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: -250px;
   background-color: var(--sidebar-bg-color);
-  color: var(--sidebar-text-color);
-  padding: 20px;
-  transform: translateX(-250px);
-  transition: transform 0.3s ease;
+  transition: left 0.3s ease;
   z-index: 1000;
 }
 
 .sidebar.open {
-  transform: translateX(0);
+  left: 0;
 }
 
-.sidebar-toggle {
-  position: absolute;
-  top: 20px; /* Adjust as needed */
-  right: 20px; /* Adjust as needed */
-  background-color: var(--sidebar-bg-color);
-  color: var(--sidebar-text-color);
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.sidebar-toggle:hover {
-  background-color: var(--sidebar-hover-bg-color);
+.sidebar h2 {
+  color: var(--main-text-color);
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .sidebar ul {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
-  margin-top: 50px;
 }
 
-.sidebar li {
-  margin-bottom: 10px;
+.sidebar ul li {
+  padding: 15px;
+  text-align: center;
 }
 
-.sidebar a {
-  color: var(--sidebar-link-color);
+.sidebar ul li a {
+  color: var(--main-text-color);
   text-decoration: none;
-  transition: color 0.2s;
+  display: block;
 }
 
-.sidebar a:hover {
-  color: var(--sidebar-link-hover-color);
+.sidebar ul li a:hover {
+  background-color: var(--hover-bg-color);
 }
 
-/* Light mode specific styles */
-.light-mode .sidebar {
-  background-color: var(--sidebar-bg-light-color);
-  color: var(--sidebar-text-light-color);
+/* Sidebar toggle button */
+.sidebar-toggle {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--main-text-color);
+  cursor: pointer;
+  z-index: 1001; /* Ensure it's above the sidebar */
 }
 
-.light-mode .sidebar-toggle {
-  background-color: var(--sidebar-bg-light-color);
-  color: var(--sidebar-text-light-color);
+.sidebar-toggle:focus {
+  outline: none;
 }
 
-.light-mode .sidebar a {
-  color: var(--sidebar-link-light-color);
+/* Adjust content for when sidebar is open */
+.sidebar.open + .dashboard-content {
+  margin-left: 250px;
 }
 
-.light-mode .sidebar a:hover {
-  color: var(--sidebar-link-hover-light-color);
+.dashboard-content {
+  transition: margin-left 0.3s ease;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  padding: 2rem;
 }
