@@ -15,7 +15,7 @@ const HomePage = () => {
         <p>Your one-stop cryptocurrency exchange platform.</p>
         <div className="navigation-buttons">
           <Link to="/dashboard" className="nav-link">Dashboard</Link>
-          <Link to="/exchange" className="nav-link">Exchange</Link>
+          <Link to="/trade" className="nav-link">Trade</Link>
           <Link to="/wallet" className="nav-link">Wallet</Link>
           <Link to="/social" className="nav-link">Social</Link>
           <Link to="/support" className="nav-link">Support</Link>
