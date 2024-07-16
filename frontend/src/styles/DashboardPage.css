@@ -1,18 +1,26 @@
 /* DashboardPage.css */
 
-.dashboard-container {
+.dashboard-page {
   display: flex;
-  transition: margin-left 0.3s ease;
-}
-
-.dashboard-container.sidebar-open .dashboard-content {
-  margin-left: 250px;
+  flex-direction: column;
+  height: 100vh;
 }
 
 .dashboard-content {
-  margin-left: 0;
+  display: flex;
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar-open .dashboard-main {
+  margin-left: 250px;
+}
+
+.dashboard-main {
+  flex: 1;
+  transition: margin-left 0.3s ease;
   padding: 2rem;
-  width: 100%;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   animation: fadeIn 1s ease-in;
@@ -76,7 +84,7 @@
 }
 
 /* Light mode specific styles */
-.light-mode .dashboard-content {
+.light-mode .dashboard-main {
   background-color: var(--main-bg-light-color); /* Ensure --main-bg-light-color is defined */
   color: var(--main-text-light-color); /* Ensure --main-text-light-color is defined */
 }

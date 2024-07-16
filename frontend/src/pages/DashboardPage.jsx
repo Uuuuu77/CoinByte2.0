@@ -16,33 +16,35 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className={`dashboard-container ${isSidebarOpen ? 'sidebar-open' : ''}`}>
-      <Sidebar toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+    <div className="dashboard-page">
       <div className="dashboard-content">
-        <div className="dashboard-header">
-          <h1>Dashboard</h1>
-        </div>
-        <div className="dashboard-widgets">
-          <div className="dashboard-left">
-            <div className="widget">
-              <Portfolio />
-            </div>
-            <div className="widget">
-              <PerformanceChart />
-            </div>
-            <div className="widget">
-              <RecentTransactions />
-            </div>
+        <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+        <div className="dashboard-main">
+          <div className="dashboard-header">
+            <h1>Dashboard</h1>
           </div>
-          <div className="dashboard-right">
-            <div className="widget">
-              <MarketData />
+          <div className="dashboard-widgets">
+            <div className="dashboard-left">
+              <div className="widget">
+                <Portfolio />
+              </div>
+              <div className="widget">
+                <PerformanceChart />
+              </div>
+              <div className="widget">
+                <RecentTransactions />
+              </div>
             </div>
-            <div className="widget">
-              <ActivityFeed />
-            </div>
-            <div className="widget">
-              <NewsFeed />
+            <div className="dashboard-right">
+              <div className="widget">
+                <MarketData />
+              </div>
+              <div className="widget">
+                <ActivityFeed />
+              </div>
+              <div className="widget">
+                <NewsFeed />
+              </div>
             </div>
           </div>
         </div>
