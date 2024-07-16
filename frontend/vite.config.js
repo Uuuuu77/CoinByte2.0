@@ -8,4 +8,8 @@ export default defineConfig({
       external: [],
     },
   },
+  server: {
+    // Add this section
+    historyApiFallback: true
+  }
 });
