@@ -11,6 +11,7 @@
   padding: 20px;
   transform: translateX(-250px);
   transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
 .sidebar.open {
@@ -51,4 +52,23 @@
 
 .sidebar a:hover {
   color: var(--sidebar-link-hover-color); /* Ensure --sidebar-link-hover-color is defined */
+}
+
+/* Light mode specific styles */
+.light-mode .sidebar {
+  background-color: var(--sidebar-bg-light-color); /* Ensure --sidebar-bg-light-color is defined */
+  color: var(--sidebar-text-light-color); /* Ensure --sidebar-text-light-color is defined */
+}
+
+.light-mode .sidebar-toggle {
+  background-color: var(--sidebar-bg-light-color);
+  color: var(--sidebar-text-light-color);
+}
+
+.light-mode .sidebar a {
+  color: var(--sidebar-link-light-color); /* Ensure --sidebar-link-light-color is defined */
+}
+
+.light-mode .sidebar a:hover {
+  color: var(--sidebar-link-hover-light-color); /* Ensure --sidebar-link-hover-light-color is defined */
 }
