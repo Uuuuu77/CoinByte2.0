@@ -2,7 +2,7 @@
 
 .dashboard {
   padding: 2rem;
-  background-color: var(--main-bg-color);
+  /* background-color: var(--main-bg-color); */
   color: var(--main-text-color);
   animation: fadeIn 1s ease-in;
 }
