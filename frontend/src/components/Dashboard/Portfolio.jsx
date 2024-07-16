@@ -1,33 +1,41 @@
+// Portfolio.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchPortfolio } from '../../services/api';
 import './Portfolio.css';
 
 const Portfolio = () => {
-  const [portfolio, setPortfolio] = useState([]);
+  const [portfolio, setPortfolio] = useState(null);
 
   useEffect(() => {
-    const fetchPortfolio = async () => {
+    const loadPortfolio = async () => {
       try {
-        const response = await axios.get('/api/portfolio'); // Replace with your API endpoint
-        setPortfolio(response.data);
+        const data = await fetchPortfolio();
+        setPortfolio(data);
       } catch (error) {
-        console.error('Error fetching portfolio data:', error);
+        console.error('Error loading portfolio:', error);
       }
     };
 
-    fetchPortfolio();
+    loadPortfolio();
   }, []);
 
   return (
     <div className="portfolio">
-      <h2>Your Portfolio</h2>
-      <ul>
-        {portfolio.map((item) => (
-          <li key={item.id} className="portfolio-item">
-            <p>{item.name}: {item.amount}</p>
-          </li>
-        ))}
-      </ul>
+      <h2>Portfolio</h2>
+      {portfolio ? (
+        <div>
+          <p>Total Value: {portfolio.totalValue}</p>
+          <ul>
+            {portfolio.assets.map((asset) => (
+              <li key={asset.id} className="portfolio-item">
+                <p>{asset.name}: {asset.amount}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>Loading portfolio...</p>
+      )}
     </div>
   );
 };

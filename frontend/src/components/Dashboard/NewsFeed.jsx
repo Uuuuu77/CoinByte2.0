@@ -1,32 +1,32 @@
+// NewsFeed.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchNews } from '../../services/api';
 import './NewsFeed.css';
 
 const NewsFeed = () => {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    const fetchNews = async () => {
+    const loadNews = async () => {
       try {
-        const response = await axios.get('/api/news'); // Replace with your API endpoint
-        setNews(response.data);
+        const data = await fetchNews();
+        setNews(data);
       } catch (error) {
-        console.error('Error fetching news:', error);
+        console.error('Error loading news:', error);
       }
     };
 
-    fetchNews();
+    loadNews();
   }, []);
 
   return (
     <div className="news-feed">
-      <h2>Cryptocurrency News</h2>
+      <h2>News Feed</h2>
       <ul>
-        {news.map((article) => (
-          <li key={article.id} className="news-item">
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              {article.title}
-            </a>
+        {news.map((newsItem) => (
+          <li key={newsItem.id} className="news-item">
+            <p>{newsItem.title}</p>
+            <p>{newsItem.description}</p>
           </li>
         ))}
       </ul>

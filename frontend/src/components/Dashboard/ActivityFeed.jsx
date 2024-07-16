@@ -1,21 +1,22 @@
+// ActivityFeed.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchActivities } from '../../services/api';
 import './ActivityFeed.css';
 
 const ActivityFeed = () => {
   const [activities, setActivities] = useState([]);
 
   useEffect(() => {
-    const fetchActivities = async () => {
+    const loadActivities = async () => {
       try {
-        const response = await axios.get('/api/activities'); // Replace with your API endpoint
-        setActivities(response.data);
+        const data = await fetchActivities();
+        setActivities(data);
       } catch (error) {
-        console.error('Error fetching activities:', error);
+        console.error('Error loading activities:', error);
       }
     };
 
-    fetchActivities();
+    loadActivities();
   }, []);
 
   return (

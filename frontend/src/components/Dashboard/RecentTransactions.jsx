@@ -1,21 +1,22 @@
+// RecentTransactions.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchRecentTransactions } from '../../services/api';
 import './RecentTransactions.css';
 
 const RecentTransactions = () => {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
-    const fetchTransactions = async () => {
+    const loadTransactions = async () => {
       try {
-        const response = await axios.get('/api/transactions'); // Replace with your API endpoint
-        setTransactions(response.data);
+        const data = await fetchRecentTransactions();
+        setTransactions(data);
       } catch (error) {
-        console.error('Error fetching transactions:', error);
+        console.error('Error loading transactions:', error);
       }
     };
 
-    fetchTransactions();
+    loadTransactions();
   }, []);
 
   return (
@@ -24,7 +25,8 @@ const RecentTransactions = () => {
       <ul>
         {transactions.map((transaction) => (
           <li key={transaction.id} className="transaction-item">
-            <p>{transaction.name}: {transaction.amount}</p>
+            <p>{transaction.description}</p>
+            <p>{transaction.amount}</p>
           </li>
         ))}
       </ul>

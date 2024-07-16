@@ -1,21 +1,22 @@
+// MarketData.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { fetchMarketData } from '../../services/api';
 import './MarketData.css';
 
 const MarketData = () => {
   const [marketData, setMarketData] = useState([]);
 
   useEffect(() => {
-    const fetchMarketData = async () => {
+    const loadMarketData = async () => {
       try {
-        const response = await axios.get('YOUR_API_ENDPOINT'); // Replace with your API endpoint
-        setMarketData(response.data);
+        const data = await fetchMarketData();
+        setMarketData(data);
       } catch (error) {
-        console.error('Error fetching market data:', error);
+        console.error('Error loading market data:', error);
       }
     };
 
-    fetchMarketData();
+    loadMarketData();
   }, []);
 
   return (
