@@ -1,7 +1,17 @@
-/* Dashboard.css */
+/* DashboardPage.css */
 
-.dashboard {
+.dashboard-container {
+  display: flex;
+}
+
+.sidebar {
+  z-index: 1000;
+}
+
+.dashboard-content {
+  margin-left: 250px;
   padding: 2rem;
+  width: 100%;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   animation: fadeIn 1s ease-in;

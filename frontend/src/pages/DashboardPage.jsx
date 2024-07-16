@@ -11,7 +11,7 @@ import '../styles/DashboardPage.css';
 
 const DashboardPage = () => {
   return (
-    <div className="dashboard">
+    <div className="dashboard-container">
       <Sidebar /> {/* Include the Sidebar */}
       <div className="dashboard-content">
         <div className="dashboard-header">
