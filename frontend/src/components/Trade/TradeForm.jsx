@@ -13,7 +13,7 @@ const TradeForm = () => {
 
   return (
     <div className="trade-form">
-      <h3>Trade Form</h3>
+      <h3>Trade</h3>
       <form onSubmit={handleTrade}>
         <label>Amount:</label>
         <input

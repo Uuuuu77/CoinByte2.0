@@ -22,7 +22,7 @@
 .trade-button {
   width: 100%;
   padding: 0.75rem;
-  background-color: var(--button-background-color);
+  background-color: var(--button-bg-color);
   color: var(--button-text-color);
   border: none;
   border-radius: 0.25rem;
@@ -30,5 +30,5 @@
 }
 
 .trade-button:hover {
-  background-color: var(--button-hover-background-color);
+  background-color: var(--button-hover-bg-color);
 }

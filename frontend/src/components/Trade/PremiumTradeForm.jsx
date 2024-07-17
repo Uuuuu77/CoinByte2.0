@@ -13,7 +13,7 @@ const PremiumTradeForm = () => {
 
   return (
     <div className="premium-trade-form">
-      <h3>Premium Trade Form</h3>
+      <h3>Premium Trade</h3>
       <form onSubmit={handleTrade}>
         <label>Cryptocurrency:</label>
         <select
