@@ -1,7 +1,7 @@
 // Login.jsx
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { login } from '../../services/auth';
+import useAuth from '../../hooks/useAuth';
 import './Login.css';
 
 // Component for user login
@@ -9,6 +9,7 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const { handleLogin } = useAuth();
   const history = useHistory();
 
   /**
@@ -18,7 +19,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await login({ email, password });
+      await handleLogin({ email, password });
       history.push('/dashboard'); // Redirect to dashboard on successful login
     } catch (err) {
       setError('Invalid email or password'); // Display error message for invalid credentials

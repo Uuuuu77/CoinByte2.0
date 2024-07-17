@@ -1,19 +1,20 @@
 // Logout.jsx
 import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { logout } from '../../services/auth';
+import useAuth from '../../hooks/useAuth';
 
 // Component for user logout
 const Logout = () => {
+  const { handleLogout } = useAuth();
   const history = useHistory();
 
   /**
    * Logs out the user and redirects to the homepage.
    */
   useEffect(() => {
-    logout(); // Perform logout action
+    handleLogout(); // Perform logout action
     history.push('/'); // Redirect to homepage after logout
-  }, [history]);
+  }, [handleLogout, history]);
 
   return null;
 };

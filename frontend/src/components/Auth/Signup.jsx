@@ -1,7 +1,7 @@
 // Signup.jsx
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { signup } from '../../services/auth';
+import useAuth from '../../hooks/useAuth';
 import './Signup.css';
 
 // Component for user signup
@@ -11,6 +11,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [userType, setUserType] = useState('individual');
   const [error, setError] = useState('');
+  const { handleSignup } = useAuth();
   const history = useHistory();
 
   /**
@@ -24,7 +25,7 @@ const Signup = () => {
       return;
     }
     try {
-      await signup({ email, password, userType }); // Attempt to create a new user account
+      await handleSignup({ email, password, userType }); // Attempt to create a new user account
       history.push('/dashboard'); // Redirect to dashboard on successful signup
     } catch (err) {
       setError('Failed to create an account'); // Display error message if signup fails

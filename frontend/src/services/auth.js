@@ -1,3 +1,4 @@
+// auth.js
 import axios from 'axios';
 
 const API_URL = 'http://localhost:5000/api'; // Adjust this URL to your backend API
