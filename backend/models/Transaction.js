@@ -1,37 +1,35 @@
-// Transaction.js
+// models/Transaction.js
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const transactionSchema = new mongoose.Schema({
-  user: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
+const TransactionSchema = new Schema({
+  walletId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Wallet',
     required: true
   },
   type: {
     type: String,
-    enum: ['buy', 'sell'],
+    enum: ['deposit', 'withdrawal', 'transfer'],
     required: true
   },
   amount: {
     type: Number,
     required: true
   },
-  currency: {
+  status: {
     type: String,
-    required: true
+    enum: ['pending', 'completed', 'failed'],
+    default: 'pending'
   },
-  price: {
-    type: Number,
-    required: true
-  },
-  date: {
+  createdAt: {
     type: Date,
     default: Date.now
   },
-  status: {
-    type: String,
-    default: 'pending' // e.g., 'pending', 'completed', 'failed'
+  updatedAt: {
+    type: Date,
+    default: Date.now
   }
 });
 
-module.exports = mongoose.model('Transaction', transactionSchema);
+module.exports = mongoose.model('Transaction', TransactionSchema);

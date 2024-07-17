@@ -1,17 +1,18 @@
 // WalletPage.jsx
 import React from 'react';
 import WalletOverview from '../components/Wallet/WalletOverview';
-import Transactions from '../components/Wallet/Transactions';
-import DepositWithdraw from '../components/Wallet/DepositWithdraw';
+import DepositForm from '../components/Wallet/DepositForm';
+import WithdrawForm from '../components/Wallet/WithdrawForm';
+import TransferForm from '../components/Wallet/TransferForm';
 import '../styles/WalletPage.css';
 
 const WalletPage = () => {
   return (
     <div className="wallet-page">
-      <h2>Wallet</h2>
       <WalletOverview />
-      <Transactions />
-      <DepositWithdraw />
+      <DepositForm />
+      <WithdrawForm />
+      <TransferForm />
     </div>
   );
 };

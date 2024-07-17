@@ -1,0 +1,42 @@
+/* src/components/Wallet/TransferForm.css */
+.transfer-form {
+  padding: 20px;
+   background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.transfer-form h2 {
+  margin-bottom: 10px;
+}
+
+.transfer-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.transfer-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.transfer-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.transfer-form button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.transfer-form p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #dc3545;
+}

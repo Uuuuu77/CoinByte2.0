@@ -1,0 +1,30 @@
+/* src/components/Wallet/WalletOverview.css */
+.wallet-overview {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.wallet-overview h2 {
+  margin-bottom: 10px;
+}
+
+.wallet-overview p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.wallet-overview h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.wallet-overview ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.wallet-overview ul li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}

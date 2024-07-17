@@ -1,0 +1,42 @@
+/* src/components/Wallet/DepositForm.css */
+.deposit-form {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.deposit-form h2 {
+  margin-bottom: 10px;
+}
+
+.deposit-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.deposit-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.deposit-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.deposit-form button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.deposit-form p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #dc3545;
+}
