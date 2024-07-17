@@ -29,7 +29,7 @@ const TradeForm = () => {
           onChange={(e) => setPrice(e.target.value)}
           required
         />
-        <button type="submit">Trade</button>
+        <button type="submit" className="trade-button">Trade</button>
       </form>
     </div>
   );

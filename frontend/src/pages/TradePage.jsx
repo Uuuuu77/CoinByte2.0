@@ -6,7 +6,7 @@ import PremiumTradeForm from '../components/Trade/PremiumTradeForm';
 import OrderBook from '../components/Trade/OrderBook';
 import TradeHistory from '../components/Trade/TradeHistory';
 import TradeStats from '../components/Trade/TradeStats';
-import { fetchMarketData, fetchRecentTransactions } from '../services/api'; // Import API calls
+import { fetchMarketData, fetchRecentTransactions } from '../services/api'; // Ensure correct import path
 import '../styles/TradePage.css';
 
 const TradePage = () => {
@@ -38,7 +38,9 @@ const TradePage = () => {
 
   return (
     <div className="trade-page">
-      <h2>Trade Cryptocurrencies and Assets</h2>
+      <div className="trade-page-container">
+        <h2>Trade Cryptocurrencies and Assets</h2>
+      </div>
       <TradeOverview marketData={marketData} />
       <div className="trade-forms">
         <TradeForm />

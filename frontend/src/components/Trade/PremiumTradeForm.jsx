@@ -38,7 +38,7 @@ const PremiumTradeForm = () => {
           <option value="real-estate">Real Estate</option>
           {/* Add more options */}
         </select>
-        <button type="submit">Trade</button>
+        <button type="submit" className="trade-button">Trade</button>
       </form>
     </div>
   );

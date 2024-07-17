@@ -1,5 +1,17 @@
 /* TradePage.css */
 
+.trade-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height of the viewport */
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+}
+
 .trade-page {
   padding: 2rem;
   animation: fadeIn 1s ease-in;
