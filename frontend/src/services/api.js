@@ -9,7 +9,7 @@ const API_BASE_URL = 'https://your-api-base-url.com'; // Replace with your actua
  */
 export const fetchActivities = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/activities`);
+    const response = await axios.get(`${API_BASE_URL}/api/activity-logs`);
     return response.data;
   } catch (error) {
     console.error('Error fetching activities:', error);
@@ -23,7 +23,7 @@ export const fetchActivities = async () => {
  */
 export const fetchMarketData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/market-data`);
+    const response = await axios.get(`${API_BASE_URL}/api/exchange/market-data`);
     return response.data;
   } catch (error) {
     console.error('Error fetching market data:', error);
@@ -51,7 +51,7 @@ export const fetchNews = async () => {
  */
 export const fetchPortfolio = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/portfolio`);
+    const response = await axios.get(`${API_BASE_URL}/api/wallet/portfolio`);
     return response.data;
   } catch (error) {
     console.error('Error fetching portfolio data:', error);
@@ -65,7 +65,7 @@ export const fetchPortfolio = async () => {
  */
 export const fetchRecentTransactions = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/recent-transactions`);
+    const response = await axios.get(`${API_BASE_URL}/api/wallet/recent-transactions`);
     return response.data;
   } catch (error) {
     console.error('Error fetching recent transactions:', error);
@@ -79,10 +79,80 @@ export const fetchRecentTransactions = async () => {
  */
 export const fetchPerformanceChartData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/performance-chart`);
+    const response = await axios.get(`${API_BASE_URL}/api/exchange/performance-chart`);
     return response.data;
   } catch (error) {
     console.error('Error fetching performance chart data:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetches the user data from the server.
+ * @returns {Promise<Object>} The user data.
+ */
+export const fetchUserData = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/user/profile`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetches the messages from the server.
+ * @returns {Promise<Array>} The list of messages.
+ */
+export const fetchMessages = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/messages`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching messages:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetches the notifications from the server.
+ * @returns {Promise<Array>} The list of notifications.
+ */
+export const fetchNotifications = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/notifications`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching notifications:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetches the social posts from the server.
+ * @returns {Promise<Array>} The list of posts.
+ */
+export const fetchSocialPosts = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/social/posts`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching social posts:', error);
+    throw error;
+  }
+};
+
+/**
+ * Fetches the support data from the server.
+ * @returns {Promise<Object>} The support data.
+ */
+export const fetchSupportData = async () => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/api/support`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching support data:', error);
     throw error;
   }
 };
