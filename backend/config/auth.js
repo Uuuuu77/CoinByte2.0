@@ -4,13 +4,11 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const { User } = require('../models');
 const { sendEmail } = require('../utils');
-const { OAuth2Client } = require('google-auth-library');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
 const router = express.Router();
-const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 // Utility to generate JWT token
 const generateToken = (user) => {
@@ -20,7 +18,7 @@ const generateToken = (user) => {
 };
 
 // User registration route
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
   try {
     const { username, email, password, user_type } = req.body;
 
@@ -34,14 +32,9 @@ router.post('/register', async (req, res) => {
     const newUser = new User({ username, email, password: hashedPassword, user_type });
     await newUser.save();
 
-    // Send a welcome email
-    sendEmail({
-      subject: 'New User Registration',
-      recipient: email,
-      body: `Welcome to CoinByte, ${username}! Your account has been registered successfully.`,
-    });
-
-    res.status(201).json({ message: 'User registered successfully' });
+    // Generate token and send response
+    const token = generateToken(newUser);
+    res.status(201).json({ message: 'User registered successfully', token, user: newUser });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
@@ -51,21 +44,13 @@ router.post('/register', async (req, res) => {
 // User login route
 router.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body;
-    const user = await User.findOne({ username });
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
     // Check if the user exists and the password matches
     if (user && await bcrypt.compare(password, user.password)) {
       const token = generateToken(user);
-
-      // Send a login notification email
-      sendEmail({
-        subject: 'New Login Notification',
-        recipient: user.email,
-        body: `Hello ${username},\n\nYou have successfully logged in to your CoinByte account.`,
-      });
-
-      res.json({ message: 'Login successful', token });
+      res.json({ message: 'Login successful', token, user });
     } else {
       res.status(401).json({ message: 'Invalid credentials' });
     }
@@ -75,48 +60,19 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Google OAuth login route
-router.get('/google', (req, res) => {
-  const redirectUri = client.generateAuthUrl({
-    access_type: 'offline',
-    scope: ['profile', 'email'],
-  });
+// Get current user route
+router.get('/me', async (req, res) => {
+  const token = req.headers.authorization.split(' ')[1];
+  
+  if (!token) return res.status(401).json({ message: 'No token provided' });
 
-  res.redirect(redirectUri);
-});
-
-// Google OAuth callback route
-router.get('/google/callback', async (req, res) => {
   try {
-    const { code } = req.query;
-    const { tokens } = await client.getToken(code);
-    const ticket = await client.verifyIdToken({
-      idToken: tokens.id_token,
-      audience: process.env.GOOGLE_CLIENT_ID,
-    });
-
-    const { email, name, sub: googleId } = ticket.getPayload();
-
-    // Find or create a new user
-    let user = await User.findOne({ email });
-    if (!user) {
-      user = new User({ username: name, email, googleId, user_type: 'individual' });
-      await user.save();
-    }
-
-    const token = generateToken(user);
-
-    // Send a login notification email
-    sendEmail({
-      subject: 'New Login Notification',
-      recipient: email,
-      body: `Hello ${name},\n\nYou have successfully logged in to your CoinByte account via Google.`,
-    });
-
-    res.json({ message: 'Login successful', token });
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id).select('-password');
+    res.json({ user });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Google login failed' });
+    console.error('Error fetching current user:', error);
+    res.status(500).json({ message: 'Failed to fetch current user' });
   }
 });
 
