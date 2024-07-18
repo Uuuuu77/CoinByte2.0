@@ -1,26 +1,39 @@
 // notificationController.js
 const Notification = require('../models/Notification');
 
-const getNotifications = async (req, res) => {
+// Fetches all notifications
+exports.getNotifications = async (req, res) => {
   try {
     const notifications = await Notification.find();
-    res.json(notifications);
+    res.json({ success: true, data: notifications });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Error fetching notifications' });
   }
 };
 
-const createNotification = async (req, res) => {
-  const notification = new Notification(req.body);
+// Fetches a single notification by ID
+exports.getNotificationById = async (req, res) => {
   try {
-    const newNotification = await notification.save();
-    res.status(201).json(newNotification);
+    const notification = await Notification.findById(req.params.id);
+    if (!notification) {
+      return res.status(404).json({ success: false, message: 'Notification not found' });
+    }
+    res.json({ success: true, data: notification });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Error fetching notification' });
   }
 };
 
-module.exports = {
-  getNotifications,
-  createNotification,
+// Creates a new notification
+exports.createNotification = async (req, res) => {
+  try {
+    const newNotification = new Notification(req.body);
+    await newNotification.save();
+    res.status(201).json({ success: true, data: newNotification });
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ success: false, message: 'Error creating notification' });
+  }
 };

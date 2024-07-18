@@ -1,26 +1,39 @@
 // messageController.js
 const Message = require('../models/Message');
 
-const getMessages = async (req, res) => {
+// Fetches all messages
+exports.getMessages = async (req, res) => {
   try {
     const messages = await Message.find();
-    res.json(messages);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.json({ success: true, data: messages });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error fetching messages' });
   }
 };
 
-const createMessage = async (req, res) => {
-  const message = new Message(req.body);
+// Fetches a single message by ID
+exports.getMessageById = async (req, res) => {
   try {
-    const newMessage = await message.save();
-    res.status(201).json(newMessage);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    const message = await Message.findById(req.params.id);
+    if (!message) {
+      return res.status(404).json({ success: false, message: 'Message not found' });
+    }
+    res.json({ success: true, data: message });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error fetching message' });
   }
 };
 
-module.exports = {
-  getMessages,
-  createMessage,
+// Creates a new message
+exports.createMessage = async (req, res) => {
+  try {
+    const newMessage = new Message(req.body);
+    await newMessage.save();
+    res.status(201).json({ success: true, data: newMessage });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ success: false, message: 'Error creating message' });
+  }
 };

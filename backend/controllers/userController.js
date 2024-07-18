@@ -2,24 +2,24 @@
 const User = require('../models/User');
 
 // Get user by username
-const getUser = async (req, res) => {
+exports.getUser = async (req, res) => {
   try {
     const { username } = req.params;
     const user = await User.findOne({ username });
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
 
-    res.json(user);
+    res.json({ success: true, data: user });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };
 
 // Update user by username
-const updateUser = async (req, res) => {
+exports.updateUser = async (req, res) => {
   try {
     const { username } = req.params;
     const updates = req.body;
@@ -27,17 +27,12 @@ const updateUser = async (req, res) => {
     const user = await User.findOneAndUpdate({ username }, updates, { new: true });
 
     if (!user) {
-      return res.status(404).json({ message: 'User not found' });
+      return res.status(404).json({ success: false, message: 'User not found' });
     }
 
-    res.json({ message: 'User updated successfully', user });
+    res.json({ success: true, message: 'User updated successfully', data: user });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ success: false, message: 'Server error' });
   }
-};
-
-module.exports = {
-  getUser,
-  updateUser,
 };

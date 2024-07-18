@@ -4,79 +4,83 @@ const Transaction = require('../models/Transaction');
 
 exports.getWallet = async (req, res) => {
   try {
-    const wallet = await Wallet.findOne({ userId: req.user.id }).populate('transactions');
-    if (!wallet) return res.status(404).json({ message: 'Wallet not found' });
-    res.json(wallet);
+    const wallet = await Wallet.findOne({ userId: req.user._id }).populate('transactions');
+    if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
+    res.json({ success: true, data: wallet });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };
 
 exports.deposit = async (req, res) => {
   const { amount } = req.body;
   try {
-    const wallet = await Wallet.findOne({ userId: req.user.id });
-    if (!wallet) return res.status(404).json({ message: 'Wallet not found' });
-    
-    const transaction = new Transaction({ walletId: wallet.id, type: 'deposit', amount, status: 'completed' });
+    const wallet = await Wallet.findOne({ userId: req.user._id });
+    if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
+
+    const transaction = new Transaction({ walletId: wallet._id, type: 'deposit', amount, status: 'completed' });
     await transaction.save();
-    
+
     wallet.balance += amount;
-    wallet.transactions.push(transaction.id);
+    wallet.transactions.push(transaction._id);
     await wallet.save();
-    
-    res.json({ message: 'Deposit successful', wallet });
+
+    res.json({ success: true, message: 'Deposit successful', data: wallet });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };
 
 exports.withdraw = async (req, res) => {
   const { amount } = req.body;
   try {
-    const wallet = await Wallet.findOne({ userId: req.user.id });
-    if (!wallet) return res.status(404).json({ message: 'Wallet not found' });
-    if (wallet.balance < amount) return res.status(400).json({ message: 'Insufficient balance' });
-    
-    const transaction = new Transaction({ walletId: wallet.id, type: 'withdrawal', amount, status: 'completed' });
+    const wallet = await Wallet.findOne({ userId: req.user._id });
+    if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
+    if (wallet.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
+
+    const transaction = new Transaction({ walletId: wallet._id, type: 'withdrawal', amount, status: 'completed' });
     await transaction.save();
-    
+
     wallet.balance -= amount;
-    wallet.transactions.push(transaction.id);
+    wallet.transactions.push(transaction._id);
     await wallet.save();
-    
-    res.json({ message: 'Withdrawal successful', wallet });
+
+    res.json({ success: true, message: 'Withdrawal successful', data: wallet });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };
 
 exports.transfer = async (req, res) => {
   const { recipientId, amount } = req.body;
   try {
-    const senderWallet = await Wallet.findOne({ userId: req.user.id });
-    if (!senderWallet) return res.status(404).json({ message: 'Sender wallet not found' });
-    if (senderWallet.balance < amount) return res.status(400).json({ message: 'Insufficient balance' });
+    const senderWallet = await Wallet.findOne({ userId: req.user._id });
+    if (!senderWallet) return res.status(404).json({ success: false, message: 'Sender wallet not found' });
+    if (senderWallet.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
 
     const recipientWallet = await Wallet.findOne({ userId: recipientId });
-    if (!recipientWallet) return res.status(404).json({ message: 'Recipient wallet not found' });
-    
-    const senderTransaction = new Transaction({ walletId: senderWallet.id, type: 'transfer', amount, status: 'completed' });
+    if (!recipientWallet) return res.status(404).json({ success: false, message: 'Recipient wallet not found' });
+
+    const senderTransaction = new Transaction({ walletId: senderWallet._id, type: 'transfer', amount, status: 'completed' });
     await senderTransaction.save();
-    
-    const recipientTransaction = new Transaction({ walletId: recipientWallet.id, type: 'transfer', amount, status: 'completed' });
+
+    const recipientTransaction = new Transaction({ walletId: recipientWallet._id, type: 'transfer', amount, status: 'completed' });
     await recipientTransaction.save();
-    
+
     senderWallet.balance -= amount;
-    senderWallet.transactions.push(senderTransaction.id);
+    senderWallet.transactions.push(senderTransaction._id);
     await senderWallet.save();
 
     recipientWallet.balance += amount;
-    recipientWallet.transactions.push(recipientTransaction.id);
+    recipientWallet.transactions.push(recipientTransaction._id);
     await recipientWallet.save();
-    
-    res.json({ message: 'Transfer successful', senderWallet, recipientWallet });
+
+    res.json({ success: true, message: 'Transfer successful', data: { senderWallet, recipientWallet } });
   } catch (err) {
-    res.status(500).json({ message: 'Server error' });
+    console.error(err);
+    res.status(500).json({ success: false, message: 'Server error' });
   }
 };

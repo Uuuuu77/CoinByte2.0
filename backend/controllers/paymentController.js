@@ -8,6 +8,7 @@ paypal.configure({
   'client_secret': process.env.PAYPAL_CLIENT_SECRET
 });
 
+// Creates a Stripe payment
 exports.createStripePayment = async (req, res) => {
   try {
     const { amount, currency } = req.body;
@@ -15,12 +16,14 @@ exports.createStripePayment = async (req, res) => {
       amount,
       currency,
     });
-    res.status(200).json(paymentIntent);
+    res.status(200).json({ success: true, data: paymentIntent });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+    console.error(error);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
+// Creates a PayPal payment
 exports.createPayPalPayment = (req, res) => {
   const { amount, currency } = req.body;
   const create_payment_json = {
@@ -42,9 +45,10 @@ exports.createPayPalPayment = (req, res) => {
 
   paypal.payment.create(create_payment_json, function (error, payment) {
     if (error) {
-      res.status(500).json({ error: error.message });
+      console.error(error);
+      res.status(500).json({ success: false, message: error.message });
     } else {
-      res.status(200).json(payment);
+      res.status(200).json({ success: true, data: payment });
     }
   });
 };

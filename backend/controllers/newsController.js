@@ -1,26 +1,39 @@
 // newsController.js
 const News = require('../models/News');
 
-const getNews = async (req, res) => {
+// Fetches all news articles
+exports.getNews = async (req, res) => {
   try {
     const news = await News.find();
-    res.json(news);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+    res.json({ success: true, data: news });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error fetching news' });
   }
 };
 
-const createNews = async (req, res) => {
-  const news = new News(req.body);
+// Fetches a single news article by ID
+exports.getNewsById = async (req, res) => {
   try {
-    const newArticle = await news.save();
-    res.status(201).json(newArticle);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
+    const newsArticle = await News.findById(req.params.id);
+    if (!newsArticle) {
+      return res.status(404).json({ success: false, message: 'News article not found' });
+    }
+    res.json({ success: true, data: newsArticle });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Error fetching news article' });
   }
 };
 
-module.exports = {
-  getNews,
-  createNews,
+// Creates a new news article
+exports.createNews = async (req, res) => {
+  try {
+    const newNewsArticle = new News(req.body);
+    await newNewsArticle.save();
+    res.status(201).json({ success: true, data: newNewsArticle });
+  } catch (error) {
+    console.error(error);
+    res.status(400).json({ success: false, message: 'Error creating news article' });
+  }
 };
