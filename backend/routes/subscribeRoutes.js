@@ -1,10 +1,10 @@
+// subscribeRoutes.js
 const express = require('express');
+const { subscribe } = require('../controllers/subscribeController');
+const authenticateToken = require('../middleware/authMiddleware');
+
 const router = express.Router();
 
-// Import your subscribe controller
-const { subscribe } = require('../controllers/subscribeController');
-
-// Define the subscribe route
-router.post('/subscribe', subscribe);
+router.post('/', authenticateToken, subscribe);
 
 module.exports = router;

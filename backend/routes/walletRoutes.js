@@ -5,8 +5,9 @@ const authenticateToken = require('../middleware/authMiddleware');
 
 const router = express.Router();
 
-router.get('/wallet', authenticateToken, walletController.getWallet);
-router.put('/wallet', authenticateToken, walletController.updateWallet);
-router.post('/wallet/transaction', authenticateToken, walletController.createTransaction);
+router.get('/', authenticateToken, walletController.getWallet);
+router.post('/deposit', authenticateToken, walletController.deposit);
+router.post('/withdraw', authenticateToken, walletController.withdraw);
+router.post('/transfer', authenticateToken, walletController.transfer);
 
 module.exports = router;
