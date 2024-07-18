@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
+const { errorHandler, notFoundHandler } = require('./middleware/errorMiddleware');
+const routes = require('./routes/index');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -24,17 +26,11 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   });
 
 // Define Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/exchange', require('./routes/exchangeRoutes'));
-app.use('/api/social', require('./routes/socialRoutes'));
-app.use('/api/support', require('./routes/supportRoutes'));
-app.use('/api/user', require('./routes/userRoutes'));
-app.use('/api/wallet', require('./routes/walletRoutes'));
-app.use('/api/activity-logs', require('./routes/activityLogRoutes'));
-app.use('/api/news', require('./routes/newsRoutes'));
-app.use('/api/messages', require('./routes/messageRoutes'));
-app.use('/api/notifications', require('./routes/notificationRoutes'));
-app.use('/api/payments', require('./routes/paymentRoutes'));
+app.use('/api', routes);
+
+// Error Handling Middleware
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 // Start Server
 app.listen(port, () => {
