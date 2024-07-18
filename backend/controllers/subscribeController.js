@@ -1,5 +1,5 @@
 // subscribeController.js
-const SubscriptionModel = require('../models/Subscription');
+const SubscriptionModel = require('../models/Subscribe');
 
 // Handles user subscription
 exports.subscribe = async (req, res) => {
