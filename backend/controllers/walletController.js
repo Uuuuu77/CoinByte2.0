@@ -1,12 +1,18 @@
 // controllers/walletController.js
 const Wallet = require('../models/Wallet');
 const Transaction = require('../models/Transaction');
+const { getCoinGeckoPrice } = require('../utils/api');
 
 exports.getWallet = async (req, res) => {
   try {
     const wallet = await Wallet.findOne({ userId: req.user._id }).populate('transactions');
     if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
-    res.json({ success: true, data: wallet });
+
+    const priceData = await getCoinGeckoPrice('bitcoin'); // Example for Bitcoin, you can replace with actual currency
+    const price = priceData['bitcoin']?.usd;
+    const balanceInUSD = wallet.balance * price;
+
+    res.json({ success: true, data: { wallet, balanceInUSD } });
   } catch (err) {
     console.error(err);
     res.status(500).json({ success: false, message: 'Server error' });

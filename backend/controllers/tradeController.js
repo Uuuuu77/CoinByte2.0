@@ -2,6 +2,7 @@
 const Transaction = require('../models/Transaction');
 const User = require('../models/User');
 const { sendEmail } = require('../utils/email');
+const { getCoinGeckoPrice } = require('../utils/api');
 
 // Buy cryptocurrency
 exports.buy = async (req, res) => {
@@ -9,18 +10,26 @@ exports.buy = async (req, res) => {
     const { amount, cryptocurrency } = req.body;
     const userId = req.user._id;
 
+    const priceData = await getCoinGeckoPrice(cryptocurrency);
+    const price = priceData[cryptocurrency]?.usd;
+
+    if (!price) {
+      return res.status(400).json({ success: false, message: 'Invalid cryptocurrency' });
+    }
+
     const transaction = new Transaction({
       userId,
       type: 'buy',
       amount,
       cryptocurrency,
+      price
     });
 
     await transaction.save();
 
     const user = await User.findById(userId);
 
-    sendEmail(user.email, 'New Transaction', `A new buy transaction of ${amount} ${cryptocurrency} has been made.`);
+    sendEmail(user.email, 'New Transaction', `A new buy transaction of ${amount} ${cryptocurrency} at ${price} USD has been made.`);
     res.status(201).json({ success: true, message: 'Buy transaction successful', data: transaction });
   } catch (error) {
     console.error(error);
@@ -34,18 +43,26 @@ exports.sell = async (req, res) => {
     const { amount, cryptocurrency } = req.body;
     const userId = req.user._id;
 
+    const priceData = await getCoinGeckoPrice(cryptocurrency);
+    const price = priceData[cryptocurrency]?.usd;
+
+    if (!price) {
+      return res.status(400).json({ success: false, message: 'Invalid cryptocurrency' });
+    }
+
     const transaction = new Transaction({
       userId,
       type: 'sell',
       amount,
       cryptocurrency,
+      price
     });
 
     await transaction.save();
 
     const user = await User.findById(userId);
 
-    sendEmail(user.email, 'New Transaction', `A new sell transaction of ${amount} ${cryptocurrency} has been made.`);
+    sendEmail(user.email, 'New Transaction', `A new sell transaction of ${amount} ${cryptocurrency} at ${price} USD has been made.`);
     res.status(201).json({ success: true, message: 'Sell transaction successful', data: transaction });
   } catch (error) {
     console.error(error);
