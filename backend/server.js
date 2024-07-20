@@ -11,10 +11,20 @@ const routes = require('./routes/index');
 const app = express();
 const port = process.env.PORT || 5000;
 
+// Enable cors
+const cors = require('cors');
+
+const corsOptions = {
+  origin: 'coin-byte2o-john-njugunas-projects.vercel.app',
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
+
+
 // Middleware
 app.use(express.json());
 app.use(helmet()); // Secure HTTP headers
-app.use(cors()); // Enable CORS
 app.use(morgan('dev')); // Log HTTP requests
 
 // Connect Database
