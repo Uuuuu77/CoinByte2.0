@@ -16,32 +16,32 @@ Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for 
 
 CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors, and businesses offering:
 - Home dashboard
-- Secure cryptocurrency exchange
+- Secure cryptocurrency trading
 - Wallet management
 - Social interactions
 - Customer support
 
 ## Features
 
-- **Home Dashboard**: Overview of activities and market trends.
+- **Home & Dashboard**: Overview of activities and market trends.
 - **User Authentication**: Secure login and signup.
-- **Cryptocurrency Exchange**: Real-time trading.
+- **Cryptocurrency Trading**: Real-time trading.
 - **Wallet Management**: Manage multiple wallets.
 - **Social Interaction**: Connect with other users.
 - **Support Services**: Access support and FAQ.
 
 ## Technologies
 
-- **Frontend**: React, JavaScript, HTML, CSS (Bootstrap), Vite
+- **Frontend**: React, JavaScript, CSS (Bootstrap), Vite
 - **Backend**: Node.js, Express, MongoDB
 - **Hosting**: Firebase or Vercel
 - **Authentication**: JWT
-- **APIs**: Real-time crypto data
+- **APIs**: Real-time crypto data(CoinGecko)
 
 ## Installation
 
 ### Prerequisites
-- Node.js (version 12.x or later)
+- Node.js (version 16.x or later)
 - MongoDB
 - Git
 - Firebase or Vercel account
@@ -71,6 +71,7 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
    ```
    MONGO_URI=your_mongodb_connection_string
    JWT_SECRET=your_jwt_secret
+   COINGECKO_API_BASE_URL=https://api.coingecko.com/api/v3
    ```
 
 5. **Start the Backend Server:**
