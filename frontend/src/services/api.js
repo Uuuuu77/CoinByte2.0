@@ -1,7 +1,7 @@
 // api.js
 import axios from 'axios';
 
-const API_BASE_URL = 'https://your-api-base-url.com'; // Replace with your actual API base URL
+const API_BASE_URL = 'http://localhost:5000'; // Your backend URL
 
 /**
  * Fetches the activity feed data from the server.
@@ -23,7 +23,7 @@ export const fetchActivities = async () => {
  */
 export const fetchMarketData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/exchange/market-data`);
+    const response = await axios.get(`${API_BASE_URL}/api/trade/market-data`);
     return response.data;
   } catch (error) {
     console.error('Error fetching market data:', error);
@@ -79,7 +79,7 @@ export const fetchRecentTransactions = async () => {
  */
 export const fetchPerformanceChartData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/exchange/performance-chart`);
+    const response = await axios.get(`${API_BASE_URL}/api/trade/performance-chart`);
     return response.data;
   } catch (error) {
     console.error('Error fetching performance chart data:', error);
@@ -153,6 +153,21 @@ export const fetchSupportData = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching support data:', error);
+    throw error;
+  }
+};
+
+/**
+ * Subscribes a user to the newsletter.
+ * @param {Object} subscriptionData - The subscription data (e.g., email).
+ * @returns {Promise<Object>} The subscription response.
+ */
+export const subscribeToNewsletter = async (subscriptionData) => {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/api/subscribe`, subscriptionData);
+    return response.data;
+  } catch (error) {
+    console.error('Error subscribing to newsletter:', error);
     throw error;
   }
 };
