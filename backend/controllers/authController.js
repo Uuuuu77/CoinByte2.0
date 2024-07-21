@@ -11,21 +11,7 @@ const jwtSecretKey = process.env.JWT_SECRET_KEY;
 
 // Utility function to generate JWT token
 const generateToken = (user) => {
-  return jwt.sign({ id: user._id, username: user.username }, jwtSecretKey, { expiresIn: '1h' });
-};
-
-// Middleware to authenticate the user using JWT
-const authenticate = (req, res, next) => {
-  const token = req.headers['authorization'];
-  if (!token) return res.status(401).json({ message: 'Access denied. No token provided.' });
-
-  try {
-    const decoded = jwt.verify(token, jwtSecretKey);
-    req.user = decoded;
-    next();
-  } catch (error) {
-    res.status(400).json({ message: 'Invalid token.' });
-  }
+  return jwt.sign({ id: user._id, username: user.username }, jwtSecretKey, { expiresIn: '1d' });
 };
 
 // User registration
@@ -44,7 +30,7 @@ const register = async (req, res) => {
       username,
       email,
       password: hashedPassword,
-      userType,
+      user_type: userType, // Ensure this matches the model field
     });
 
     await newUser.save();
@@ -56,6 +42,7 @@ const register = async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 };
+
 
 // User login
 const login = async (req, res) => {
@@ -70,7 +57,7 @@ const login = async (req, res) => {
     const token = generateToken(user);
 
     sendEmail(user.email, 'New Login Notification', `Hello ${username},\n\nYou have successfully logged in to your CoinByte account.`);
-    res.json({ message: 'Login successful', token });
+    res.json({ message: 'Login successful', token, user });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });
@@ -79,7 +66,6 @@ const login = async (req, res) => {
 
 // User logout
 const logout = (req, res) => {
-  // To logout, client-side should simply delete the JWT token from storage (e.g., localStorage or cookies).
   res.json({ message: 'Logout successful' });
 };
 
@@ -101,5 +87,4 @@ module.exports = {
   login,
   logout,
   getUser,
-  authenticate,  // Exporting authenticate middleware
 };
