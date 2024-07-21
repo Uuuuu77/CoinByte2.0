@@ -1,6 +1,5 @@
 // index.js
 const express = require('express');
-
 const authRoutes = require('./authRoutes');
 const tradeRoutes = require('./tradeRoutes');
 const socialRoutes = require('./socialRoutes');
