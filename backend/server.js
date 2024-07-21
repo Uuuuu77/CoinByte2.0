@@ -3,24 +3,22 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
-const cors = require('cors');
 const morgan = require('morgan');
+const cors = require('cors');
 const { errorHandler, notFoundHandler } = require('./middleware/errorMiddleware');
 const routes = require('./routes/index');
 
 const app = express();
 const port = process.env.PORT || 5000;
 
-// Enable cors
-const cors = require('cors');
-
+// Enable CORS
 const corsOptions = {
-  origin: 'coin-byte2o-john-njugunas-projects.vercel.app',
+  origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
   optionsSuccessStatus: 200,
+  credentials: true // if you need to support credentials
 };
 
 app.use(cors(corsOptions));
-
 
 // Middleware
 app.use(express.json());
