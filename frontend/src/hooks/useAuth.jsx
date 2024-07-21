@@ -1,6 +1,6 @@
 // useAuth.jsx
 import { useState, useEffect } from 'react';
-import { login, logout, getCurrentUser } from '../services/auth';
+import { login, logout, getCurrentUser, register } from '../services/auth';
 
 const useAuth = () => {
   const [user, setUser] = useState(null);
@@ -39,7 +39,16 @@ const useAuth = () => {
     }
   };
 
-  return { user, loading, handleLogin, handleLogout };
+  const handleSignup = async (credentials) => {
+    try {
+      const newUser = await register(credentials);
+      setUser(newUser);
+    } catch (error) {
+      throw new Error('Signup failed');
+    }
+  };
+
+  return { user, loading, handleLogin, handleLogout, handleSignup };
 };
 
 export default useAuth;
