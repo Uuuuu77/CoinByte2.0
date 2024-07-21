@@ -1,7 +1,12 @@
 // api.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000'; // Your backend URL
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+
+const axiosInstance = axios.create({
+  baseURL: API_BASE_URL,
+  withCredentials: true
+});
 
 /**
  * Fetches the activity feed data from the server.
@@ -9,7 +14,7 @@ const API_BASE_URL = 'http://localhost:5000'; // Your backend URL
  */
 export const fetchActivities = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/activity-logs`);
+    const response = await axiosInstance.get('/activity-logs');
     return response.data;
   } catch (error) {
     console.error('Error fetching activities:', error);
@@ -23,7 +28,7 @@ export const fetchActivities = async () => {
  */
 export const fetchMarketData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/trade/market-data`);
+    const response = await axiosInstance.get('/trade/market-data');
     return response.data;
   } catch (error) {
     console.error('Error fetching market data:', error);
@@ -37,7 +42,7 @@ export const fetchMarketData = async () => {
  */
 export const fetchNews = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/news`);
+    const response = await axiosInstance.get('/news');
     return response.data;
   } catch (error) {
     console.error('Error fetching news:', error);
@@ -51,7 +56,7 @@ export const fetchNews = async () => {
  */
 export const fetchPortfolio = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/wallet/portfolio`);
+    const response = await axiosInstance.get('/wallet/portfolio');
     return response.data;
   } catch (error) {
     console.error('Error fetching portfolio data:', error);
@@ -65,7 +70,7 @@ export const fetchPortfolio = async () => {
  */
 export const fetchRecentTransactions = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/wallet/recent-transactions`);
+    const response = await axiosInstance.get('/wallet/recent-transactions');
     return response.data;
   } catch (error) {
     console.error('Error fetching recent transactions:', error);
@@ -79,7 +84,7 @@ export const fetchRecentTransactions = async () => {
  */
 export const fetchPerformanceChartData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/trade/performance-chart`);
+    const response = await axiosInstance.get('/trade/performance-chart');
     return response.data;
   } catch (error) {
     console.error('Error fetching performance chart data:', error);
@@ -93,7 +98,7 @@ export const fetchPerformanceChartData = async () => {
  */
 export const fetchUserData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/user/profile`);
+    const response = await axiosInstance.get('/user/profile');
     return response.data;
   } catch (error) {
     console.error('Error fetching user data:', error);
@@ -107,7 +112,7 @@ export const fetchUserData = async () => {
  */
 export const fetchMessages = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/messages`);
+    const response = await axiosInstance.get('/messages');
     return response.data;
   } catch (error) {
     console.error('Error fetching messages:', error);
@@ -121,7 +126,7 @@ export const fetchMessages = async () => {
  */
 export const fetchNotifications = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/notifications`);
+    const response = await axiosInstance.get('/notifications');
     return response.data;
   } catch (error) {
     console.error('Error fetching notifications:', error);
@@ -135,7 +140,7 @@ export const fetchNotifications = async () => {
  */
 export const fetchSocialPosts = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/social/posts`);
+    const response = await axiosInstance.get('/social/posts');
     return response.data;
   } catch (error) {
     console.error('Error fetching social posts:', error);
@@ -149,7 +154,7 @@ export const fetchSocialPosts = async () => {
  */
 export const fetchSupportData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/api/support`);
+    const response = await axiosInstance.get('/support');
     return response.data;
   } catch (error) {
     console.error('Error fetching support data:', error);
@@ -164,7 +169,7 @@ export const fetchSupportData = async () => {
  */
 export const subscribeToNewsletter = async (subscriptionData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/api/subscribe`, subscriptionData);
+    const response = await axiosInstance.post('/subscribe', subscriptionData);
     return response.data;
   } catch (error) {
     console.error('Error subscribing to newsletter:', error);
