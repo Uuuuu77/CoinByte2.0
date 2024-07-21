@@ -38,6 +38,10 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
 // Define Routes
 app.use('/api', routes);
 
+app.get('/', (req, res) => {
+  res.status(404).json({ success: false, message: 'Resource Not Found' });
+});
+
 // Error Handling Middleware
 app.use(notFoundHandler);
 app.use(errorHandler);
