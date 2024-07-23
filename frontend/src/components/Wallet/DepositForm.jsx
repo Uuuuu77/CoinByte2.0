@@ -50,7 +50,7 @@ const DepositForm = () => {
           <option value="USD">USD</option>
           <option value="KSH">KSH</option>
           <option value="GBP">GBP</option>
-          <option value="Euro">Euro</option>
+          <option value="EURO">EURO</option>
         </select>
         <input
           type="text"
