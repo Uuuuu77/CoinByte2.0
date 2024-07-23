@@ -1,6 +1,5 @@
 /* WalletPage.css */
 
-/* WalletPage.css */
 .wallet-page {
   display: flex;
   flex-direction: column;
@@ -10,9 +9,31 @@
   background-color: var(--background-color);
 }
 
-.wallet-section {
+.wallet-overview-section {
   width: 100%;
   max-width: 800px;
+  background-color: var(--section-bg-color);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.wallet-forms-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.wallet-row {
+  display: flex;
+  gap: 20px;
+}
+
+.wallet-form {
+  flex: 1;
   background-color: var(--section-bg-color);
   padding: 20px;
   border-radius: 8px;
