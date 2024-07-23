@@ -21,7 +21,8 @@
   gap: 10px;
 }
 
-.deposit-form input, .deposit-form select {
+.deposit-form input,
+.deposit-form select {
   padding: 10px;
   font-size: 16px;
   border: 1px solid var(--input-border-color);

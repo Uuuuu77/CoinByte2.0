@@ -6,12 +6,15 @@ import './DepositForm.css';
 const DepositForm = () => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('BTC');
+  const [fiatAmount, setFiatAmount] = useState('');
+  const [fiatCurrency, setFiatCurrency] = useState('USD');
+  const [note, setNote] = useState('');
   const [message, setMessage] = useState('');
 
   const handleDeposit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/wallet/deposit', { amount, currency });
+      const response = await axios.post('/api/wallet/deposit', { amount, currency, fiatAmount, fiatCurrency, note });
       setMessage(response.data.message);
     } catch (error) {
       setMessage('Error making deposit');
@@ -26,7 +29,7 @@ const DepositForm = () => {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          placeholder="Amount"
+          placeholder="Cryptocurrency Amount"
           required
         />
         <select value={currency} onChange={(e) => setCurrency(e.target.value)} required>
@@ -36,6 +39,25 @@ const DepositForm = () => {
           <option value="LTC">Litecoin (LTC)</option>
           <option value="ETH">Ethereum (ETH)</option>
         </select>
+        <input
+          type="number"
+          value={fiatAmount}
+          onChange={(e) => setFiatAmount(e.target.value)}
+          placeholder="Fiat Amount"
+          required
+        />
+        <select value={fiatCurrency} onChange={(e) => setFiatCurrency(e.target.value)} required>
+          <option value="USD">USD</option>
+          <option value="KSH">KSH</option>
+          <option value="GBP">GBP</option>
+          <option value="Euro">Euro</option>
+        </select>
+        <input
+          type="text"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          placeholder="Note"
+        />
         <button type="submit">Deposit</button>
       </form>
       {message && <p>{message}</p>}
