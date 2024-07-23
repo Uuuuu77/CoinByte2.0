@@ -46,10 +46,10 @@ const WithdrawForm = () => {
           <option value="ETH">Ethereum (ETH)</option>
         </select>
         <input
-          type="number"
-          value={fiatAmount}
-          onChange={(e) => setFiatAmount(e.target.value)}
-          placeholder="Fiat Amount"
+          type="text"
+          value={Address}
+          onChange={(e) => setAddress(e.target.value)}
+          placeholder="Wallet Address"
           required
         />
         <select value={fiatCurrency} onChange={(e) => setFiatCurrency(e.target.value)} required>
