@@ -6,13 +6,21 @@ import './WithdrawForm.css';
 const WithdrawForm = () => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('BTC');
+  const [fiatAmount, setFiatAmount] = useState('');
+  const [fiatCurrency, setFiatCurrency] = useState('USD');
   const [destination, setDestination] = useState('');
   const [message, setMessage] = useState('');
 
   const handleWithdraw = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/wallet/withdraw', { amount, currency, destination });
+      const response = await axios.post('/api/wallet/withdraw', {
+        amount,
+        currency,
+        fiatAmount,
+        fiatCurrency,
+        destination,
+      });
       setMessage(response.data.message);
     } catch (error) {
       setMessage('Error making withdrawal');
@@ -27,7 +35,7 @@ const WithdrawForm = () => {
           type="number"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
-          placeholder="Amount"
+          placeholder="Cryptocurrency Amount"
           required
         />
         <select value={currency} onChange={(e) => setCurrency(e.target.value)} required>
@@ -38,10 +46,23 @@ const WithdrawForm = () => {
           <option value="ETH">Ethereum (ETH)</option>
         </select>
         <input
+          type="number"
+          value={fiatAmount}
+          onChange={(e) => setFiatAmount(e.target.value)}
+          placeholder="Fiat Amount"
+          required
+        />
+        <select value={fiatCurrency} onChange={(e) => setFiatCurrency(e.target.value)} required>
+          <option value="USD">USD</option>
+          <option value="KSH">KSH</option>
+          <option value="GBP">GBP</option>
+          <option value="Euro">Euro</option>
+        </select>
+        <input
           type="text"
           value={destination}
           onChange={(e) => setDestination(e.target.value)}
-          placeholder="Destination Address"
+          placeholder="Destination Bank Account"
           required
         />
         <button type="submit">Withdraw</button>
