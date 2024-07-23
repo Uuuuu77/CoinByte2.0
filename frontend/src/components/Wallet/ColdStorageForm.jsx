@@ -6,12 +6,13 @@ import './ColdStorageForm.css';
 const ColdStorageForm = () => {
   const [amount, setAmount] = useState('');
   const [cryptocurrency, setCryptocurrency] = useState('Bitcoin');
+  const [note, setNote] = useState('');
   const [message, setMessage] = useState('');
 
   const handleColdStorage = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/wallet/cold-storage', { amount, cryptocurrency });
+      const response = await axios.post('/api/wallet/cold-storage', { amount, cryptocurrency, note });
       setMessage(response.data.message);
     } catch (error) {
       setMessage('Error storing in cold storage');
@@ -39,6 +40,12 @@ const ColdStorageForm = () => {
           onChange={(e) => setAmount(e.target.value)}
           placeholder="Amount"
           required
+        />
+        <input
+          type="text"
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          placeholder="Note"
         />
         <button type="submit">Store in Cold Storage</button>
       </form>
