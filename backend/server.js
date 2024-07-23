@@ -14,7 +14,7 @@ const port = process.env.PORT || 5000;
 // Enable cors
 const corsOptions = {
   origin: [
-    'http://localhost:3000', // Add your local frontend origin here
+    'http://localhost:5173/', // Add your local frontend origin here
     'https://coin-byte2o-john-njugunas-projects.vercel.app'
   ],
   optionsSuccessStatus: 200,
