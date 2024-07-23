@@ -1,4 +1,3 @@
-// WithdrawForm.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 import './WithdrawForm.css';
@@ -6,9 +5,10 @@ import './WithdrawForm.css';
 const WithdrawForm = () => {
   const [amount, setAmount] = useState('');
   const [currency, setCurrency] = useState('BTC');
-  const [fiatAmount, setFiatAmount] = useState('');
+  const [walletAddress, setWalletAddress] = useState('');
   const [fiatCurrency, setFiatCurrency] = useState('USD');
   const [destination, setDestination] = useState('');
+  const [withdrawMethod, setWithdrawMethod] = useState('wallet'); // 'wallet' or 'bank'
   const [message, setMessage] = useState('');
 
   const handleWithdraw = async (e) => {
@@ -17,9 +17,9 @@ const WithdrawForm = () => {
       const response = await axios.post('/api/wallet/withdraw', {
         amount,
         currency,
-        fiatAmount,
-        fiatCurrency,
-        destination,
+        walletAddress: withdrawMethod === 'wallet' ? walletAddress : '',
+        fiatCurrency: withdrawMethod === 'bank' ? fiatCurrency : '',
+        destination: withdrawMethod === 'bank' ? destination : '',
       });
       setMessage(response.data.message);
     } catch (error) {
@@ -45,26 +45,53 @@ const WithdrawForm = () => {
           <option value="LTC">Litecoin (LTC)</option>
           <option value="ETH">Ethereum (ETH)</option>
         </select>
-        <input
-          type="text"
-          value={Address}
-          onChange={(e) => setAddress(e.target.value)}
-          placeholder="Wallet Address"
-          required
-        />
-        <select value={fiatCurrency} onChange={(e) => setFiatCurrency(e.target.value)} required>
-          <option value="USD">USD</option>
-          <option value="KSH">KSH</option>
-          <option value="GBP">GBP</option>
-          <option value="Euro">Euro</option>
-        </select>
-        <input
-          type="text"
-          value={destination}
-          onChange={(e) => setDestination(e.target.value)}
-          placeholder="Destination Bank Account"
-          required
-        />
+        
+        <div className="withdraw-method">
+          <label>
+            <input
+              type="radio"
+              value="wallet"
+              checked={withdrawMethod === 'wallet'}
+              onChange={() => setWithdrawMethod('wallet')}
+            />
+            Wallet Address
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="bank"
+              checked={withdrawMethod === 'bank'}
+              onChange={() => setWithdrawMethod('bank')}
+            />
+            Bank Account
+          </label>
+        </div>
+
+        {withdrawMethod === 'wallet' ? (
+          <input
+            type="text"
+            value={walletAddress}
+            onChange={(e) => setWalletAddress(e.target.value)}
+            placeholder="Wallet Address"
+            required
+          />
+        ) : (
+          <>
+            <select value={fiatCurrency} onChange={(e) => setFiatCurrency(e.target.value)} required>
+              <option value="USD">USD</option>
+              <option value="KSH">KSH</option>
+              <option value="GBP">GBP</option>
+              <option value="Euro">Euro</option>
+            </select>
+            <input
+              type="text"
+              value={destination}
+              onChange={(e) => setDestination(e.target.value)}
+              placeholder="Destination Bank Account"
+              required
+            />
+          </>
+        )}
         <button type="submit">Withdraw</button>
       </form>
       {message && <p>{message}</p>}
