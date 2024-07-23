@@ -1,24 +1,31 @@
 /* WithdrawForm.css */
+
 .withdraw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   padding: 20px;
-  background-color: var(--background-color);
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .withdraw-form h2 {
   margin-bottom: 10px;
+  color: var(--primary-text-color);
 }
 
 .withdraw-form form {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.withdraw-form input {
-  margin-bottom: 10px;
+.withdraw-form input, .withdraw-form select {
   padding: 10px;
   font-size: 16px;
+  border: 1px solid var(--input-border-color);
+  border-radius: 5px;
 }
 
 .withdraw-form button {
@@ -38,5 +45,5 @@
 .withdraw-form p {
   margin-top: 10px;
   font-size: 16px;
-  color: #dc3545;
+  color: var(--error-color);
 }

@@ -1,43 +1,24 @@
-// src/components/Wallet/WalletOverview.jsx
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+// WalletOverview.jsx
+import React from 'react';
 import './WalletOverview.css';
 
 const WalletOverview = () => {
-  const [wallet, setWallet] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchWallet = async () => {
-      try {
-        const response = await axios.get('/api/wallet');
-        setWallet(response.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching wallet:', error);
-        setLoading(false);
-      }
-    };
-    fetchWallet();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!wallet) {
-    return <div>Wallet not found</div>;
-  }
+  // Dummy data, replace with real data
+  const walletData = {
+    BTC: 0.5,
+    DOGE: 2000,
+    USDT: 1000,
+    LTC: 10,
+    ETH: 2,
+  };
 
   return (
     <div className="wallet-overview">
       <h2>Wallet Overview</h2>
-      <p>Balance: {wallet.balance} BTC</p>
-      <h3>Recent Transactions</h3>
       <ul>
-        {wallet.transactions.map(transaction => (
-          <li key={transaction._id}>
-            {transaction.type} - {transaction.amount} BTC - {transaction.status}
+        {Object.entries(walletData).map(([currency, amount]) => (
+          <li key={currency}>
+            {currency}: {amount}
           </li>
         ))}
       </ul>
@@ -46,3 +27,4 @@ const WalletOverview = () => {
 };
 
 export default WalletOverview;
+

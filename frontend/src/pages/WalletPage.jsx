@@ -4,15 +4,21 @@ import WalletOverview from '../components/Wallet/WalletOverview';
 import DepositForm from '../components/Wallet/DepositForm';
 import WithdrawForm from '../components/Wallet/WithdrawForm';
 import TransferForm from '../components/Wallet/TransferForm';
+import ColdStorageForm from '../components/Wallet/ColdStorageForm';
 import '../styles/WalletPage.css';
 
 const WalletPage = () => {
   return (
     <div className="wallet-page">
-      <WalletOverview />
-      <DepositForm />
-      <WithdrawForm />
-      <TransferForm />
+      <div className="wallet-section">
+        <WalletOverview />
+      </div>
+      <div className="wallet-section">
+        <DepositForm />
+        <WithdrawForm />
+        <TransferForm />
+	<ColdStorageForm />
+      </div>
     </div>
   );
 };

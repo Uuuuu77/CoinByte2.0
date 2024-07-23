@@ -1,0 +1,44 @@
+/* ColdStorageForm.css */
+
+.cold-storage-form {
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cold-storage-form h2 {
+  margin-bottom: 10px;
+}
+
+.cold-storage-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.cold-storage-form select,
+.cold-storage-form input {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.cold-storage-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cold-storage-form button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.cold-storage-form p {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #dc3545;
+}
