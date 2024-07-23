@@ -7,11 +7,12 @@
   gap: 30px;
   padding: 40px 20px;
   background-color: var(--background-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .wallet-overview-section {
   width: 100%;
-  max-width: 800px;
   background-color: var(--section-bg-color);
   padding: 20px;
   border-radius: 8px;
@@ -24,16 +25,18 @@
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  max-width: 800px;
 }
 
 .wallet-row {
   display: flex;
   gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .wallet-form {
   flex: 1;
+  min-width: 300px;
   background-color: var(--section-bg-color);
   padding: 20px;
   border-radius: 8px;

@@ -15,16 +15,15 @@ const WalletOverview = () => {
   return (
     <div className="wallet-overview">
       <h2>Wallet Overview</h2>
-      <ul>
+      <div className="crypto-balances">
         {Object.entries(walletData).map(([currency, amount]) => (
-          <li key={currency}>
-            {currency}: {amount}
-          </li>
+          <div key={currency}>
+            <p>{currency}: {amount}</p>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
 
 export default WalletOverview;
-
