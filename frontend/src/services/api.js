@@ -131,9 +131,9 @@ export const createPost = async (postData) => {
 };
 
 // Function to create a new comment
-export const createComment = async (commentData) => {
+export const createComment = async (postId, commentData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/social/comments`, commentData, {
+    const response = await axios.post(`${API_BASE_URL}/social/posts/${postId}/comments`, commentData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
