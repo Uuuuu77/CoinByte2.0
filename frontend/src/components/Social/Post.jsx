@@ -6,7 +6,7 @@ import './Post.css';
 const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
 
-  if (!post || !post.id || !post.content) {
+  if (!post || !post._id || !post.content) {
     return <div className="post">Post data is not available.</div>;
   }
 
@@ -17,7 +17,7 @@ const Post = ({ post }) => {
       <button onClick={() => setShowComments(!showComments)}>
         {showComments ? 'Hide Comments' : 'Show Comments'}
       </button>
-      {showComments && <Comments postId={post.id} />}
+      {showComments && <Comments postId={post._id} />}
     </div>
   );
 };

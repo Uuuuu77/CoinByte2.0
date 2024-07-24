@@ -1,4 +1,3 @@
-// Comments.jsx
 import React, { useState, useEffect } from 'react';
 import { createComment, fetchComments } from '../../services/api';
 import './Comments.css';
@@ -31,8 +30,10 @@ const Comments = ({ postId }) => {
     e.preventDefault();
     try {
       const response = await createComment(postId, { content: newComment });
-      setComments([...comments, response]); // Assuming response is a single comment object
-      setNewComment('');
+      if (response.data) {
+        setComments([...comments, response.data]); // Assuming response.data is a single comment object
+        setNewComment('');
+      }
     } catch (error) {
       console.error('Error creating comment:', error);
       setError('Failed to create comment.');
@@ -54,7 +55,7 @@ const Comments = ({ postId }) => {
       <ul>
         {Array.isArray(comments) ? (
           comments.map((comment) => (
-            <li key={comment.id}>
+            <li key={comment._id}>
               <p>{comment.content}</p>
               <span>{new Date(comment.createdAt).toLocaleString()}</span>
             </li>
