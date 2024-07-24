@@ -1,7 +1,7 @@
 // Post.jsx
 import React, { useState } from 'react';
 import Comments from './Comments';
-import { createPost } from '../services/api';
+import { createPost } from '../../services/api';
 import './Post.css';
 
 const Post = ({ post }) => {

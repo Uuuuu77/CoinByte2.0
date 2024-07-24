@@ -1,7 +1,7 @@
 // Comments.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { createComment } from '../services/api';
+import { createComment } from '../../services/api';
 import './Comments.css';
 
 const Comments = ({ postId }) => {
