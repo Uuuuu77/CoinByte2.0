@@ -9,7 +9,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:500
  */
 export const fetchActivities = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/activity-logs`);
+    const response = await axios.get(${API_BASE_URL}/activity-logs);
     return response.data;
   } catch (error) {
     console.error('Error fetching activities:', error);
@@ -23,7 +23,7 @@ export const fetchActivities = async () => {
  */
 export const fetchMarketData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/trade/market-data`);
+    const response = await axios.get(${API_BASE_URL}/trade/market-data);
     return response.data;
   } catch (error) {
     console.error('Error fetching market data:', error);
@@ -37,7 +37,7 @@ export const fetchMarketData = async () => {
  */
 export const fetchNews = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/news`);
+    const response = await axios.get(${API_BASE_URL}/news);
     return response.data;
   } catch (error) {
     console.error('Error fetching news:', error);
@@ -51,7 +51,7 @@ export const fetchNews = async () => {
  */
 export const fetchPortfolio = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/wallet/portfolio`);
+    const response = await axios.get(${API_BASE_URL}/wallet/portfolio);
     return response.data;
   } catch (error) {
     console.error('Error fetching portfolio data:', error);
@@ -65,7 +65,7 @@ export const fetchPortfolio = async () => {
  */
 export const fetchRecentTransactions = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/wallet/recent-transactions`);
+    const response = await axios.get(${API_BASE_URL}/wallet/recent-transactions);
     return response.data;
   } catch (error) {
     console.error('Error fetching recent transactions:', error);
@@ -79,7 +79,7 @@ export const fetchRecentTransactions = async () => {
  */
 export const fetchPerformanceChartData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/trade/performance-chart`);
+    const response = await axios.get(${API_BASE_URL}/trade/performance-chart);
     return response.data;
   } catch (error) {
     console.error('Error fetching performance chart data:', error);
@@ -93,7 +93,7 @@ export const fetchPerformanceChartData = async () => {
  */
 export const fetchUserData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/user/profile`);
+    const response = await axios.get(${API_BASE_URL}/user/profile);
     return response.data;
   } catch (error) {
     console.error('Error fetching user data:', error);
@@ -107,7 +107,7 @@ export const fetchUserData = async () => {
  */
 export const fetchMessages = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/messages`);
+    const response = await axios.get(${API_BASE_URL}/messages);
     return response.data;
   } catch (error) {
     console.error('Error fetching messages:', error);
@@ -118,14 +118,14 @@ export const fetchMessages = async () => {
 // Function to create a new post
 export const createPost = async (postData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/social/posts`, postData, {
+    const response = await axios.post(${API_BASE_URL}/social/posts, postData, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+        Authorization: Bearer ${localStorage.getItem('token')}
       }
     });
     return response.data;
   } catch (error) {
-    console.error('Error creating post:', error);
+    console.error("Error creating post:", error);
     throw error;
   }
 };
@@ -133,14 +133,14 @@ export const createPost = async (postData) => {
 // Function to create a new comment
 export const createComment = async (commentData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/social/comments`, commentData, {
+    const response = await axios.post(${API_URL}/social/comments, commentData, {
       headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
+        Authorization: Bearer ${localStorage.getItem('token')}
       }
     });
     return response.data;
   } catch (error) {
-    console.error('Error creating comment:', error);
+    console.error("Error creating comment:", error);
     throw error;
   }
 };
@@ -151,7 +151,7 @@ export const createComment = async (commentData) => {
  */
 export const fetchNotifications = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/notifications`);
+    const response = await axios.get(${API_BASE_URL}/notifications);
     return response.data;
   } catch (error) {
     console.error('Error fetching notifications:', error);
@@ -165,7 +165,7 @@ export const fetchNotifications = async () => {
  */
 export const fetchSupportData = async () => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/support`);
+    const response = await axios.get(${API_BASE_URL}/support);
     return response.data;
   } catch (error) {
     console.error('Error fetching support data:', error);
@@ -180,7 +180,7 @@ export const fetchSupportData = async () => {
  */
 export const subscribeToNewsletter = async (subscriptionData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/subscribe`, subscriptionData);
+    const response = await axios.post(${API_BASE_URL}/subscribe, subscriptionData);
     return response.data;
   } catch (error) {
     console.error('Error subscribing to newsletter:', error);
