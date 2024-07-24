@@ -1,5 +1,8 @@
+// Forums.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Post from './Post';
+import './Forums.css';
 
 const Forums = () => {
   const [posts, setPosts] = useState([]);
@@ -43,10 +46,7 @@ const Forums = () => {
       </form>
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>
-            <p>{post.content}</p>
-            <span>{new Date(post.createdAt).toLocaleString()}</span>
-          </li>
+          <Post key={post.id} post={post} />
         ))}
       </ul>
     </div>

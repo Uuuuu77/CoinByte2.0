@@ -1,0 +1,34 @@
+/* Post.css */
+.post {
+  background: var(--main-bg-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+  color: var(--main-text-color);
+}
+
+.post p {
+  margin: 0 0 1rem;
+}
+
+.post span {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.post button {
+  padding: 0.5rem 1rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.post button:hover {
+  background-color: var(--button-hover-bg-color);
+}

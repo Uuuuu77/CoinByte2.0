@@ -1,0 +1,48 @@
+/* Messaging.css */
+.messaging {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--main-text-color);
+}
+
+.messaging ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.messaging li {
+  background: var(--main-bg-color);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.messaging form {
+  display: flex;
+  gap: 1rem;
+}
+
+.messaging input {
+  flex: 1;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+.messaging button {
+  padding: 1rem 2rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.messaging button:hover {
+  background-color: var(--button-hover-bg-color);
+}

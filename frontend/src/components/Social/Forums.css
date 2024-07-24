@@ -1,0 +1,44 @@
+/* Forums.css */
+.forums {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--main-text-color);
+}
+
+.forums form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.forums textarea {
+  width: 100%;
+  height: 100px;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  resize: none;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+.forums button {
+  align-self: flex-end;
+  padding: 0.5rem 2rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.forums button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.forums ul {
+  list-style-type: none;
+  padding: 0;
+}

@@ -8,3 +8,43 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+.social-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1rem;
+}
+
+.social-nav button {
+  background: var(--button-bg-color);
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background 0.3s;
+  color: var(--button-text-color);
+}
+
+.social-nav button.active {
+  background: var(--button-hover-bg-color);
+}
+
+.social-nav button:hover {
+  background: var(--button-hover-bg-color);
+}
+
+.social-content {
+  background: var(--main-bg-color);
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  color: var(--main-text-color);
+}
+
+.social-content > *:not(:last-child) {
+  margin-bottom: 2rem;
+}

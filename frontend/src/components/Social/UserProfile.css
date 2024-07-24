@@ -1,0 +1,44 @@
+/* UserProfile.css */
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: var(--main-text-color);
+}
+
+.user-profile form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.user-profile input,
+.user-profile textarea {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+}
+
+.user-profile button {
+  padding: 0.5rem 2rem;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.user-profile button:hover {
+  background-color: var(--button-hover-bg-color);
+}
+
+.user-profile button[type="button"] {
+  background-color: #f44336;
+}
+
+.user-profile button[type="button"]:hover {
+  background-color: #e53935;
+}
