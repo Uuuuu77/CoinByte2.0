@@ -145,6 +145,17 @@ export const createComment = async (postId, commentData) => {
   }
 };
 
+// Function to fetch comments for a specific post
+export const fetchComments = async (postId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/social/posts/${postId}/comments`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    throw error;
+  }
+};
+
 /**
  * Fetches the notifications from the server.
  * @returns {Promise<Array>} The list of notifications.
