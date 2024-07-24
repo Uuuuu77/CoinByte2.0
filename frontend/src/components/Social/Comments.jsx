@@ -10,7 +10,11 @@ const Comments = ({ postId }) => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`/api/posts/${postId}/comments`);
+        const response = await axios.get(`/api/social/posts/${postId}/comments`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`
+          }
+        });
         if (Array.isArray(response.data)) {
           setComments(response.data);
         } else {
@@ -27,7 +31,11 @@ const Comments = ({ postId }) => {
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`/api/posts/${postId}/comments`, { content: newComment });
+      const response = await axios.post(`/api/social/comments`, { postId, content: newComment }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      });
       setComments([...comments, response.data]);
       setNewComment('');
     } catch (error) {
@@ -48,7 +56,7 @@ const Comments = ({ postId }) => {
       </form>
       <ul>
         {comments.map((comment) => (
-          <li key={comment.id}>
+          <li key={comment._id}>
             <p>{comment.content}</p>
             <span>{new Date(comment.createdAt).toLocaleString()}</span>
           </li>

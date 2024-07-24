@@ -1,6 +1,7 @@
 // Post.jsx
 import React, { useState, useEffect } from 'react';
 import Comments from './Comments';
+
 import './Post.css';
 
 const Post = ({ post }) => {
@@ -24,7 +25,7 @@ const Post = ({ post }) => {
       <button onClick={() => setShowComments(!showComments)}>
         {showComments ? 'Hide Comments' : 'Show Comments'}
       </button>
-      {showComments && <Comments postId={post.id} />}
+      {showComments && <Comments postId={post._id} />}
     </div>
   );
 };
