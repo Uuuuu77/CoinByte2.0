@@ -117,12 +117,17 @@ export const fetchMessages = async () => {
 // Function to get all posts
 export const getPosts = async () => {
   try {
-    const response = await axios.get(`${API_URL}/social/posts`, {
+    const response = await axios.get(`${API_BASE_URL}/social/posts`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-    return response.data;
+    if (Array.isArray(response.data)) {
+      return response.data;
+    } else {
+      console.error("API response is not an array:", response.data);
+      return [];
+    }
   } catch (error) {
     console.error("Error fetching posts:", error);
     throw error;
@@ -132,7 +137,7 @@ export const getPosts = async () => {
 // Function to create a new post
 export const createPost = async (postData) => {
   try {
-    const response = await axios.post(`${API_URL}/social/posts`, postData, {
+    const response = await axios.post(`${API_BASE_URL}/social/posts`, postData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
