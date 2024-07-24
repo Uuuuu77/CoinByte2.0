@@ -130,7 +130,18 @@ export const createPost = async (postData) => {
   }
 };
 
-// Function to create a new comment
+// Function to fetch comments
+export const fetchComments = async (postId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/social/posts/${postId}/comments`);
+    return Array.isArray(response.data) ? response.data : []; // Ensure response is an array
+  } catch (error) {
+    console.error('Error fetching comments:', error);
+    throw error;
+  }
+};
+
+// Function to create comments
 export const createComment = async (postId, commentData) => {
   try {
     const response = await axios.post(`${API_BASE_URL}/social/posts/${postId}/comments`, commentData, {
@@ -138,20 +149,9 @@ export const createComment = async (postId, commentData) => {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
-    return response.data;
+    return response.data; // Ensure response is a comment object
   } catch (error) {
     console.error('Error creating comment:', error);
-    throw error;
-  }
-};
-
-// Function to fetch comments for a specific post
-export const fetchComments = async (postId) => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/social/posts/${postId}/comments`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching comments:', error);
     throw error;
   }
 };
