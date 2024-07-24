@@ -7,6 +7,7 @@ const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
+    console.log('Post data:', post);
     if (!post || typeof post !== 'object') {
       console.error('Post data is invalid:', post);
     }

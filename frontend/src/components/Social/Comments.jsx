@@ -11,7 +11,11 @@ const Comments = ({ postId }) => {
     const fetchComments = async () => {
       try {
         const response = await axios.get(`/api/posts/${postId}/comments`);
-        setComments(response.data);
+        if (Array.isArray(response.data)) {
+          setComments(response.data);
+        } else {
+          console.error('Fetched comments data is not an array:', response.data);
+        }
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
