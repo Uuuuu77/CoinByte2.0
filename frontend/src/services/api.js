@@ -114,6 +114,51 @@ export const fetchMessages = async () => {
   }
 };
 
+// Function to get all posts
+export const getPosts = async () => {
+  try {
+    const response = await axios.get(`${API_URL}/social/posts`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw error;
+  }
+};
+
+// Function to create a new post
+export const createPost = async (postData) => {
+  try {
+    const response = await axios.post(`${API_URL}/social/posts`, postData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error creating post:", error);
+    throw error;
+  }
+};
+
+// Function to create a new comment
+export const createComment = async (commentData) => {
+  try {
+    const response = await axios.post(`${API_URL}/social/comments`, commentData, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error creating comment:", error);
+    throw error;
+  }
+};
+
 /**
  * Fetches the notifications from the server.
  * @returns {Promise<Array>} The list of notifications.
@@ -124,20 +169,6 @@ export const fetchNotifications = async () => {
     return response.data;
   } catch (error) {
     console.error('Error fetching notifications:', error);
-    throw error;
-  }
-};
-
-/**
- * Fetches the social posts from the server.
- * @returns {Promise<Array>} The list of posts.
- */
-export const fetchSocialPosts = async () => {
-  try {
-    const response = await axios.get(`${API_BASE_URL}/social/posts`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching social posts:', error);
     throw error;
   }
 };
