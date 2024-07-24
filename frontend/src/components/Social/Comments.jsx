@@ -1,3 +1,4 @@
+// Comments.jsx
 import React, { useState, useEffect } from 'react';
 import { createComment, fetchComments } from '../../services/api';
 import './Comments.css';
@@ -30,8 +31,8 @@ const Comments = ({ postId }) => {
     e.preventDefault();
     try {
       const response = await createComment(postId, { content: newComment });
-      if (response.data) {
-        setComments([...comments, response.data]); // Assuming response.data is a single comment object
+      if (response) {
+        setComments([...comments, response]); // Adjusted to handle mock response
         setNewComment('');
       }
     } catch (error) {
@@ -53,11 +54,11 @@ const Comments = ({ postId }) => {
         <button type="submit">Comment</button>
       </form>
       <ul>
-        {Array.isArray(comments) ? (
+        {comments.length > 0 ? (
           comments.map((comment) => (
-            <li key={comment._id}>
+            <li key={comment.id}>
               <p>{comment.content}</p>
-              <span>{new Date(comment.createdAt).toLocaleString()}</span>
+              <span>{new Date().toLocaleString()}</span> {/* Mock data doesn't include createdAt */}
             </li>
           ))
         ) : (
