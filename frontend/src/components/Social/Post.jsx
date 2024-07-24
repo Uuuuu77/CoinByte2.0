@@ -1,7 +1,6 @@
 // Post.jsx
 import React, { useState, useEffect } from 'react';
 import Comments from './Comments';
-
 import './Post.css';
 
 const Post = ({ post }) => {
