@@ -1,5 +1,7 @@
 // api.js
 import axios from 'axios';
+import { postsMock } from './mock/postsMock';
+import { commentsMock } from './mock/commentsMock';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
 
@@ -115,43 +117,27 @@ export const fetchMessages = async () => {
   }
 };
 
-// Function to create a new post
+// Function to create a new post with mock data
 export const createPost = async (postData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/social/posts`, postData, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    });
-    return response.data;
+    // Simulating the behavior with mock data
+    const newPost = { ...postData, id: postsMock.length + 1 };
+    postsMock.push(newPost);
+    return newPost;
   } catch (error) {
     console.error('Error creating post:', error);
     throw error;
   }
 };
 
-// Function to fetch comments
+// Function to fetch comments with mock data
 export const fetchComments = async (postId) => {
   try {
-    const response = await axios.get(`${API_BASE_URL}/social/posts/${postId}/comments`);
-    return Array.isArray(response.data) ? response.data : []; // Ensure response is an array
+    // Filter comments by postId from mock data
+    const filteredComments = commentsMock.filter(comment => comment.postId === postId);
+    return filteredComments;
   } catch (error) {
     console.error('Error fetching comments:', error);
-    throw error;
-  }
-};
-
-// Function to create comments
-export const createComment = async (postId, commentData) => {
-  try {
-    const response = await axios.post(`${API_BASE_URL}/social/posts/${postId}/comments`, commentData, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem('token')}`
-      }
-    });
-    return response.data; // Ensure response is a comment object
-  } catch (error) {
-    console.error('Error creating comment:', error);
     throw error;
   }
 };
