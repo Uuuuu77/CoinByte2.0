@@ -1,3 +1,4 @@
+// api.js
 import axios from 'axios';
 
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
@@ -124,7 +125,7 @@ export const createPost = async (postData) => {
     });
     return response.data;
   } catch (error) {
-    console.error("Error creating post:", error);
+    console.error('Error creating post:', error);
     throw error;
   }
 };
@@ -132,14 +133,14 @@ export const createPost = async (postData) => {
 // Function to create a new comment
 export const createComment = async (commentData) => {
   try {
-    const response = await axios.post(`${API_URL}/social/comments`, commentData, {
+    const response = await axios.post(`${API_BASE_URL}/social/comments`, commentData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
     });
     return response.data;
   } catch (error) {
-    console.error("Error creating comment:", error);
+    console.error('Error creating comment:', error);
     throw error;
   }
 };
