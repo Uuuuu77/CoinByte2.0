@@ -1,11 +1,14 @@
 // Post.jsx
 import React, { useState } from 'react';
 import Comments from './Comments';
-import { createPost } from '../../services/api';
 import './Post.css';
 
 const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
+
+  if (!post || !post.id || !post.content) {
+    return <div className="post">Post data is not available.</div>;
+  }
 
   return (
     <div className="post">

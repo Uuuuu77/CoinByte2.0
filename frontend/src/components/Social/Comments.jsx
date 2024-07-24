@@ -1,23 +1,26 @@
 // Comments.jsx
 import React, { useState, useEffect } from 'react';
-import { createComment, fetchComments } from '../../services/api'; // Import APIs
+import { createComment, fetchComments } from '../../services/api';
 import './Comments.css';
 
 const Comments = ({ postId }) => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchCommentsData = async () => {
       try {
-        const fetchedComments = await fetchComments(postId); // Use the API function
-        if (Array.isArray(fetchedComments)) { // Check if the response is an array
+        const fetchedComments = await fetchComments(postId);
+        if (Array.isArray(fetchedComments)) {
           setComments(fetchedComments);
         } else {
           console.error('Expected an array of comments, but got:', fetchedComments);
+          setError('Failed to load comments.');
         }
       } catch (error) {
         console.error('Error fetching comments:', error);
+        setError('Failed to load comments.');
       }
     };
 
@@ -32,11 +35,13 @@ const Comments = ({ postId }) => {
       setNewComment('');
     } catch (error) {
       console.error('Error creating comment:', error);
+      setError('Failed to create comment.');
     }
   };
 
   return (
     <div className="comments">
+      {error && <p className="error-message">{error}</p>}
       <form onSubmit={handleCommentSubmit}>
         <textarea
           value={newComment}
@@ -47,12 +52,16 @@ const Comments = ({ postId }) => {
         <button type="submit">Comment</button>
       </form>
       <ul>
-        {comments.map((comment) => (
-          <li key={comment.id}>
-            <p>{comment.content}</p>
-            <span>{new Date(comment.createdAt).toLocaleString()}</span>
-          </li>
-        ))}
+        {Array.isArray(comments) ? (
+          comments.map((comment) => (
+            <li key={comment.id}>
+              <p>{comment.content}</p>
+              <span>{new Date(comment.createdAt).toLocaleString()}</span>
+            </li>
+          ))
+        ) : (
+          <p>No comments available.</p>
+        )}
       </ul>
     </div>
   );
