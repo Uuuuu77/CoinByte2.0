@@ -1,7 +1,6 @@
 // Comments.jsx
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { createComment } from '../../services/api';
+import { createComment, fetchComments } from '../../services/api'; // Import APIs
 import './Comments.css';
 
 const Comments = ({ postId }) => {
@@ -9,23 +8,27 @@ const Comments = ({ postId }) => {
   const [newComment, setNewComment] = useState('');
 
   useEffect(() => {
-    const fetchComments = async () => {
+    const fetchCommentsData = async () => {
       try {
-        const response = await axios.get(`/api/social/posts/${postId}/comments`);
-        setComments(response.data);
+        const fetchedComments = await fetchComments(postId); // Use the API function
+        if (Array.isArray(fetchedComments)) { // Check if the response is an array
+          setComments(fetchedComments);
+        } else {
+          console.error('Expected an array of comments, but got:', fetchedComments);
+        }
       } catch (error) {
         console.error('Error fetching comments:', error);
       }
     };
 
-    fetchComments();
+    fetchCommentsData();
   }, [postId]);
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await createComment(postId, { content: newComment });
-      setComments([...comments, response.data]);
+      setComments([...comments, response]); // Assuming response is a single comment object
       setNewComment('');
     } catch (error) {
       console.error('Error creating comment:', error);
