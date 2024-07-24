@@ -5,11 +5,16 @@ import './Comments.css';
 const Comments = ({ postId }) => {
   const [newComment, setNewComment] = useState('');
 
-  // Function to handle new comment submission (mock implementation)
-  const handleCommentSubmit = (e) => {
+  const handleCommentSubmit = async (e) => {
     e.preventDefault();
-    console.log('New comment:', newComment);
-    setNewComment('');
+    try {
+      // Mock submission - replace with actual API call
+      await createComment({ postId, content: newComment });
+      console.log('New comment:', newComment);
+      setNewComment('');
+    } catch (error) {
+      console.error('Error submitting comment:', error);
+    }
   };
 
   return (
@@ -23,7 +28,6 @@ const Comments = ({ postId }) => {
         ></textarea>
         <button type="submit">Comment</button>
       </form>
-      {/* Mock comments list */}
       <ul>
         <li>No comments yet.</li>
       </ul>
