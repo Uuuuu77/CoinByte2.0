@@ -142,6 +142,19 @@ export const fetchComments = async (postId) => {
   }
 };
 
+// Exporting createComment function with mock data
+export const createComment = async (postId, commentData) => {
+  try {
+    // Simulating the behavior with mock data
+    const newComment = { ...commentData, id: commentsMock.length + 1, postId };
+    commentsMock.push(newComment);
+    return newComment;
+  } catch (error) {
+    console.error('Error creating comment:', error);
+    throw error;
+  }
+};
+
 /**
  * Fetches the notifications from the server.
  * @returns {Promise<Array>} The list of notifications.
