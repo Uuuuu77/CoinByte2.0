@@ -1,10 +1,9 @@
 // Post.jsx
 import React, { useState, useEffect } from 'react';
-import Comments from './Comments';
 import './Post.css';
 
 const Post = ({ post }) => {
-  const [showComments, setShowComments] = useState(false);
+  // const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     console.log('Post data:', post);
@@ -21,10 +20,11 @@ const Post = ({ post }) => {
     <div className="post">
       <p>{post.content}</p>
       <span>{new Date(post.createdAt).toLocaleString()}</span>
-      <button onClick={() => setShowComments(!showComments)}>
+      {/* Remove comments logic */}
+      {/* <button onClick={() => setShowComments(!showComments)}>
         {showComments ? 'Hide Comments' : 'Show Comments'}
       </button>
-      {showComments && <Comments postId={post._id} />}
+      {showComments && <Comments postId={post._id} />} */}
     </div>
   );
 };
