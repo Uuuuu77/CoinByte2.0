@@ -6,7 +6,7 @@ import Signup from '../components/Auth/Signup';
 import Logout from '../components/Auth/Logout';
 import '../styles/AuthPage.css';
 
-// Component for authentication pages (Login, Signup, Logout)
+// Component for authentication pages (Login, Signup, Logout).
 const AuthPage = () => {
   const { path } = useRouteMatch();
 
