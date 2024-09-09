@@ -5,7 +5,7 @@ import FAQ from '../components/Support/FAQ';
 import SupportChat from '../components/Support/SupportChat';
 import TicketSystem from '../components/Support/TicketSystem';
 import ContactForm from '../components/Support/ContactForm';
-import '../styles/Support.css'; // Main CSS file for the support page
+import '../styles/SupportPage.css'; // Main CSS file for the support page
 
 const Support = () => {
   return (
