@@ -1,0 +1,33 @@
+/* SupportChat.css */
+
+.support-chat-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.support-chat-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.chat-box {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.chat-box p {
+  margin: 10px 0;
+}
+
+.chat-input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}

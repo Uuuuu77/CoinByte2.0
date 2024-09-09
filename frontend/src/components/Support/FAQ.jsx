@@ -1,32 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+// FAQ.jsx
+import React from 'react';
+import './FAQ.css';
 
 const FAQ = () => {
-  const [faqs, setFaqs] = useState([]);
-
-  useEffect(() => {
-    const fetchFAQs = async () => {
-      try {
-        const response = await axios.get('/api/faqs');
-        setFaqs(response.data);
-      } catch (error) {
-        console.error('Error fetching FAQs:', error);
-      }
-    };
-
-    fetchFAQs();
-  }, []);
-
   return (
-    <div className="faq">
+    <div className="faq-container">
       <h2>Frequently Asked Questions</h2>
-      <ul>
-        {faqs.map((faq) => (
-          <li key={faq.id}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
-          </li>
-        ))}
+      <ul className="faq-list">
+        <li className="faq-item">
+          <strong>Question 1:</strong> How do I reset my password?
+          <p>Answer: Go to the account settings and select "Reset Password".</p>
+        </li>
+        <li className="faq-item">
+          <strong>Question 2:</strong> How do I contact support?
+          <p>Answer: Use the support chat or submit a ticket via the support form.</p>
+        </li>
+        {/* Add more FAQ items here */}
       </ul>
     </div>
   );

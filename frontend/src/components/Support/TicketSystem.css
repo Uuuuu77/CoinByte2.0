@@ -1,0 +1,39 @@
+/* TicketSystem.css */
+
+.ticket-system-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-system-container h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.ticket-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ticket-input,
+.ticket-textarea {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.ticket-button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.ticket-button:hover {
+  background-color: #0056b3;
+}
