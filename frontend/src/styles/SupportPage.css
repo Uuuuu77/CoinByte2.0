@@ -14,7 +14,7 @@
 
 .support-section {
   margin-bottom: 30px;
-  background-color: #f1f1f1;
+  background-color: var(--background-color);
   padding: 20px;
   border-radius: 10px;
 }

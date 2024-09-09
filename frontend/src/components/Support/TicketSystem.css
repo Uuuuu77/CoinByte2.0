@@ -2,7 +2,7 @@
 
 .ticket-system-container {
   padding: 20px;
-  background-color: #ffffff;
+  background-color: var(--background-color);
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
@@ -27,13 +27,13 @@
 
 .ticket-button {
   padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .ticket-button:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover-bg-color);
 }
