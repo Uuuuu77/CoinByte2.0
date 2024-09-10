@@ -14,7 +14,7 @@ Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for 
 
 ## Introduction
 
-CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors, and businesses offering:
+CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors, developers and businesses offering:
 - Home dashboard
 - Secure cryptocurrency trading
 - Wallet management
