@@ -32,7 +32,7 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 
 ## Technologies
 
-- **Frontend**: React, JavaScript, CSS (Bootstrap), Vite
+- **Frontend**: React, JavaScript, CSS (Bootstrap), Vite.
 - **Backend**: Node.js, Express, MongoDB
 - **Hosting**: Firebase or Vercel
 - **Authentication**: JWT
