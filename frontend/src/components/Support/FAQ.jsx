@@ -1,21 +1,31 @@
 // FAQ.jsx
-import React from 'react';
+
+import React, { useState } from 'react';
 import './FAQ.css';
 
 const FAQ = () => {
+  const [openFAQ, setOpenFAQ] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setOpenFAQ(openFAQ === index ? null : index);
+  };
+
+  const faqs = [
+    { question: "How do I reset my password?", answer: "To reset your password, go to the account settings..." },
+    { question: "How can I verify my account?", answer: "Verification is done by submitting the required documents..." },
+    // More FAQs...
+  ];
+
   return (
-    <div className="faq-container">
-      <h2>Frequently Asked Questions</h2>
-      <ul className="faq-list">
-        <li className="faq-item">
-          <strong>Question 1:</strong> How do I reset my password?
-          <p>Answer: Go to the account settings and select "Reset Password".</p>
-        </li>
-        <li className="faq-item">
-          <strong>Question 2:</strong> How do I contact support?
-          <p>Answer: Use the support chat or submit a ticket via the support form.</p>
-        </li>
-        {/* Add more FAQ items here */}
+    <div className="faq-section">
+      <h3>Frequently Asked Questions</h3>
+      <ul>
+        {faqs.map((faq, index) => (
+          <li key={index} onClick={() => toggleFAQ(index)} className={openFAQ === index ? 'open' : ''}>
+            <div className="faq-question">{faq.question}</div>
+            {openFAQ === index && <div className="faq-answer">{faq.answer}</div>}
+          </li>
+        ))}
       </ul>
     </div>
   );

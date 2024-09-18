@@ -1,17 +1,57 @@
 // TicketSystem.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import './TicketSystem.css';
 
 const TicketSystem = () => {
+  const [ticketData, setTicketData] = useState({
+    issue: '',
+    description: '',
+  });
+
+  const handleInputChange = (e) => {
+    setTicketData({
+      ...ticketData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Submit ticket logic
+    console.log('Ticket submitted:', ticketData);
+  };
+
   return (
     <div className="ticket-system-container">
-      <h2>Submit a Support Ticket</h2>
-      <form className="ticket-form">
-        <input type="text" placeholder="Your Name" className="ticket-input" />
-        <input type="email" placeholder="Your Email" className="ticket-input" />
-        <textarea placeholder="Describe your issue..." className="ticket-textarea"></textarea>
-        <button type="submit" className="ticket-button">Submit Ticket</button>
+      <h3>Submit a Support Ticket</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="issue">Issue</label>
+          <input
+            type="text"
+            id="issue"
+            name="issue"
+            value={ticketData.issue}
+            onChange={handleInputChange}
+            placeholder="Describe your issue"
+            required
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            name="description"
+            value={ticketData.description}
+            onChange={handleInputChange}
+            placeholder="Provide a detailed description of your issue"
+            required
+          />
+        </div>
+
+        <button type="submit" className="submit-ticket-button">Submit Ticket</button>
       </form>
     </div>
   );

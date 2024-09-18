@@ -5,14 +5,10 @@ import './SupportChat.css';
 
 const SupportChat = () => {
   return (
-    <div className="support-chat-container">
-      <h2>Live Support Chat</h2>
-      <div className="chat-box">
-        <p><strong>Support Agent:</strong> How can I help you today?</p>
-        <p><strong>You:</strong> I need assistance with my account.</p>
-        {/* Chat messages */}
-      </div>
-      <input type="text" placeholder="Type your message here..." className="chat-input" />
+    <div className="support-chat">
+      <h3>Chat with Support</h3>
+      <p>Have a question? Start a live chat with our support team.</p>
+      <button className="chat-button">Start Chat</button>
     </div>
   );
 };
