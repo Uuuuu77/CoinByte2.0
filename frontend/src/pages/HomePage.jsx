@@ -1,5 +1,4 @@
 // HomePage.jsx
-import React from 'react';
 import { Link } from 'react-router-dom';
 import Banner from '../components/Home/Banner';
 import Features from '../components/Home/Features';
@@ -33,10 +32,10 @@ const HomePage = () => {
       <section className="testimonials-section">
         <h2>What Our Users Say</h2>
         <div className="testimonial">
-          <p>"CoinByte made crypto trading so much easier and secure. Highly recommend!" - John Doe</p>
+          <p>&ldquo;CoinByte made crypto trading so much easier and secure. Highly recommend!&rdquo; - John Doe</p>
         </div>
         <div className="testimonial">
-          <p>"Great platform with excellent customer support." - Richard Roe</p>
+          <p>&ldquo;Great platform with excellent customer support.&rdquo; - Richard Roe</p>
         </div>
       </section>
       <section className="newsletter-section">

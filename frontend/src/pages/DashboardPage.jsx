@@ -1,5 +1,5 @@
 // DashboardPage.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Sidebar from '../components/Dashboard/Sidebar';
 import Portfolio from '../components/Dashboard/Portfolio';
 import MarketData from '../components/Dashboard/MarketData';

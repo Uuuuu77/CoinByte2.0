@@ -1,6 +1,6 @@
 // FAQ.jsx
-
-import React, { useState } from 'react';
+/* eslint-disable react-refresh/only-export-components */
+import { useState } from 'react';
 import './FAQ.css';
 
 const FAQ = () => {

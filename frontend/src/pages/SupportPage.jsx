@@ -1,5 +1,4 @@
 // SupportPage.jsx
-import React from 'react';
 import SearchBar from '../components/Support/SearchBar';
 import FAQ from '../components/Support/FAQ';
 import SupportChat from '../components/Support/SupportChat';

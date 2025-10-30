@@ -1,5 +1,4 @@
 // TradeHistory.jsx
-import React from 'react';
 import './TradeHistory.css';
 
 const TradeHistory = () => {

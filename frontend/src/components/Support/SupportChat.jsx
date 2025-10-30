@@ -1,6 +1,5 @@
 // SupportChat.jsx
 
-import React from 'react';
 import './SupportChat.css';
 
 const SupportChat = () => {

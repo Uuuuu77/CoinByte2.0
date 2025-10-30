@@ -1,5 +1,5 @@
 // Post.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Comments from './Comments';
 import './Post.css';
 

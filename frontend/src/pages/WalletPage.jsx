@@ -1,5 +1,4 @@
 // src/pages/WalletPage.jsx
-import React from 'react';
 import WalletOverview from '../components/Wallet/WalletOverview';
 import DepositForm from '../components/Wallet/DepositForm';
 import WithdrawForm from '../components/Wallet/WithdrawForm';

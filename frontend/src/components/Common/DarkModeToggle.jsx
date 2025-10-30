@@ -4,7 +4,7 @@
  * Component for toggling between dark and light themes.
  */
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './DarkModeToggle.css';
 

@@ -1,5 +1,5 @@
 // Signup.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './Signup.css';

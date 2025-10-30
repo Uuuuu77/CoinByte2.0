@@ -1,5 +1,5 @@
 // Comments.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { createComment, fetchComments } from '../../services/api';
 import './Comments.css';
 

@@ -1,5 +1,4 @@
 // AssetSelector.jsx
-import React from 'react';
 import './AssetSelector.css';
 
 const AssetSelector = ({ selectedAsset, setSelectedAsset }) => {

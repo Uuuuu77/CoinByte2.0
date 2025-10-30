@@ -1,5 +1,4 @@
 // WalletOverview.jsx
-import React from 'react';
 import './WalletOverview.css';
 
 const WalletOverview = () => {

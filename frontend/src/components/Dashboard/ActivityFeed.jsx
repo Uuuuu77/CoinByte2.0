@@ -1,5 +1,5 @@
 // ActivityFeed.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchActivities } from '../../services/api';
 import './ActivityFeed.css';
 

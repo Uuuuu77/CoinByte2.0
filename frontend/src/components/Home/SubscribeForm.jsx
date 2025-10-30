@@ -1,5 +1,5 @@
 // SubscribeForm.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import './SubscribeForm.css';
 
@@ -10,7 +10,7 @@ const SubscribeForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://your-api-base-url.com/api/subscribe', { email });
+      await axios.post('https://your-api-base-url.com/api/subscribe', { email });
       setMessage('Thank you for subscribing!');
       setEmail('');
     } catch (error) {
