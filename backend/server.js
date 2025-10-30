@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
+const mongoSanitize = require('express-mongo-sanitize');
 const { errorHandler, notFoundHandler } = require('./middleware/errorMiddleware');
 const routes = require('./routes/index');
 
@@ -23,9 +24,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Middleware
-app.use(express.json());
+app.use(express.json({ limit: '10kb' })); // Limit body size to prevent DoS
 app.use(helmet()); // Secure HTTP headers
 app.use(morgan('dev')); // Log HTTP requests
+app.use(mongoSanitize()); // Prevent NoSQL injection
 
 // Connect Database
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
