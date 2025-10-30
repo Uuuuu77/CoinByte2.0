@@ -22,13 +22,19 @@ exports.getWallet = async (req, res) => {
 exports.deposit = async (req, res) => {
   const { amount } = req.body;
   try {
+    // Additional validation for amount
+    const numAmount = parseFloat(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+      return res.status(400).json({ success: false, message: 'Invalid amount' });
+    }
+
     const wallet = await Wallet.findOne({ userId: req.user._id });
     if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
 
-    const transaction = new Transaction({ walletId: wallet._id, type: 'deposit', amount, status: 'completed' });
+    const transaction = new Transaction({ walletId: wallet._id, type: 'deposit', amount: numAmount, status: 'completed' });
     await transaction.save();
 
-    wallet.balance += amount;
+    wallet.balance += numAmount;
     wallet.transactions.push(transaction._id);
     await wallet.save();
 
@@ -42,14 +48,20 @@ exports.deposit = async (req, res) => {
 exports.withdraw = async (req, res) => {
   const { amount } = req.body;
   try {
+    // Additional validation for amount
+    const numAmount = parseFloat(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+      return res.status(400).json({ success: false, message: 'Invalid amount' });
+    }
+
     const wallet = await Wallet.findOne({ userId: req.user._id });
     if (!wallet) return res.status(404).json({ success: false, message: 'Wallet not found' });
-    if (wallet.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
+    if (wallet.balance < numAmount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
 
-    const transaction = new Transaction({ walletId: wallet._id, type: 'withdrawal', amount, status: 'completed' });
+    const transaction = new Transaction({ walletId: wallet._id, type: 'withdrawal', amount: numAmount, status: 'completed' });
     await transaction.save();
 
-    wallet.balance -= amount;
+    wallet.balance -= numAmount;
     wallet.transactions.push(transaction._id);
     await wallet.save();
 
@@ -63,24 +75,35 @@ exports.withdraw = async (req, res) => {
 exports.transfer = async (req, res) => {
   const { recipientId, amount } = req.body;
   try {
+    // Additional validation for amount
+    const numAmount = parseFloat(amount);
+    if (isNaN(numAmount) || numAmount <= 0) {
+      return res.status(400).json({ success: false, message: 'Invalid amount' });
+    }
+
+    // Prevent self-transfer
+    if (req.user._id.toString() === recipientId) {
+      return res.status(400).json({ success: false, message: 'Cannot transfer to yourself' });
+    }
+
     const senderWallet = await Wallet.findOne({ userId: req.user._id });
     if (!senderWallet) return res.status(404).json({ success: false, message: 'Sender wallet not found' });
-    if (senderWallet.balance < amount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
+    if (senderWallet.balance < numAmount) return res.status(400).json({ success: false, message: 'Insufficient balance' });
 
     const recipientWallet = await Wallet.findOne({ userId: recipientId });
     if (!recipientWallet) return res.status(404).json({ success: false, message: 'Recipient wallet not found' });
 
-    const senderTransaction = new Transaction({ walletId: senderWallet._id, type: 'transfer', amount, status: 'completed' });
+    const senderTransaction = new Transaction({ walletId: senderWallet._id, type: 'transfer', amount: numAmount, status: 'completed' });
     await senderTransaction.save();
 
-    const recipientTransaction = new Transaction({ walletId: recipientWallet._id, type: 'transfer', amount, status: 'completed' });
+    const recipientTransaction = new Transaction({ walletId: recipientWallet._id, type: 'transfer', amount: numAmount, status: 'completed' });
     await recipientTransaction.save();
 
-    senderWallet.balance -= amount;
+    senderWallet.balance -= numAmount;
     senderWallet.transactions.push(senderTransaction._id);
     await senderWallet.save();
 
-    recipientWallet.balance += amount;
+    recipientWallet.balance += numAmount;
     recipientWallet.transactions.push(recipientTransaction._id);
     await recipientWallet.save();
 
