@@ -1,5 +1,4 @@
 // AuthPage.jsx
-import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Login from '../components/Auth/Login';
 import Signup from '../components/Auth/Signup';

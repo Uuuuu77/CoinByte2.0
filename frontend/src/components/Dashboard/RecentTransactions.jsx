@@ -1,5 +1,5 @@
 // RecentTransactions.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchRecentTransactions } from '../../services/api';
 import './RecentTransactions.css';
 

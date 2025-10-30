@@ -1,5 +1,5 @@
 // TradePage.jsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import TradeOverview from '../components/Trade/TradeOverview';
 import TradeForm from '../components/Trade/TradeForm';
 import PremiumTradeForm from '../components/Trade/PremiumTradeForm';

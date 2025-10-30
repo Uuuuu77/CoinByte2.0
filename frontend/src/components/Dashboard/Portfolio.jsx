@@ -1,5 +1,5 @@
 // Portfolio.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchPortfolio } from '../../services/api';
 import './Portfolio.css';
 

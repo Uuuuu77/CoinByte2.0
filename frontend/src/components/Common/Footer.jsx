@@ -5,7 +5,6 @@
  * and social media links.
  */
 
-import React from 'react';
 import './Footer.css';
 import twitterImage from '../../assets/images/twitter.png';
 import linkedinImage from '../../assets/images/linkedin.png';

@@ -1,5 +1,4 @@
 // Benefits.jsx
-import React from 'react';
 import './Benefits.css';
 import benefitsImage from '../../assets/images/benefits-image.png';
 

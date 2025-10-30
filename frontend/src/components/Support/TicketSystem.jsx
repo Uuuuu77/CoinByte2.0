@@ -1,6 +1,6 @@
 // TicketSystem.jsx
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './TicketSystem.css';
 
 const TicketSystem = () => {

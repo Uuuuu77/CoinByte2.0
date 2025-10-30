@@ -1,5 +1,4 @@
 // Banner.jsx
-import React from 'react';
 import './Banner.css';
 import bannerImage from '../../assets/images/welcome-image.jpeg';
 

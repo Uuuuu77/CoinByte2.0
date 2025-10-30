@@ -1,5 +1,4 @@
 // HowItWorks.jsx
-import React from 'react';
 import './HowItWorks.css';
 import howItWorksImage from '../../assets/images/howItWorksImage.jpeg';
 

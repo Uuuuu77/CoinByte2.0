@@ -1,5 +1,5 @@
 // PerformanceChart.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchPerformanceChartData } from '../../services/api';
 import './PerformanceChart.css';
 

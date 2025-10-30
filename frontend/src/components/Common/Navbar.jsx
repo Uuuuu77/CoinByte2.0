@@ -6,7 +6,6 @@
  * authentication links for Signup and Login, and a DarkModeToggle component.
  */
 
-import React from 'react';
 import { Link } from 'react-router-dom';
 import DarkModeToggle from './DarkModeToggle';
 import './Navbar.css';

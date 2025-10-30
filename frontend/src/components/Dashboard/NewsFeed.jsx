@@ -1,5 +1,5 @@
 // NewsFeed.jsx
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { fetchNews } from '../../services/api';
 import './NewsFeed.css';
 

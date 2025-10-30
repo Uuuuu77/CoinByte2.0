@@ -1,5 +1,5 @@
 // SocialPage.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Forums from '../components/Social/Forums';
 import Messaging from '../components/Social/Messaging';
 import UserProfile from '../components/Social/UserProfile';

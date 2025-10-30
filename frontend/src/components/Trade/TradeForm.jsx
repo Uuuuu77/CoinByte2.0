@@ -1,5 +1,5 @@
 // TradeForm.jsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './TradeForm.css';
 
 const TradeForm = () => {

@@ -1,5 +1,4 @@
 // Features.jsx
-import React from 'react';
 import './Features.css';
 import featuresImage from '../../assets/images/features-image.jpeg';
 
