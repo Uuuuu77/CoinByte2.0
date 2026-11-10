@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.jks
+*wallet*
+*keystore*
+
+# Build and coverage
+frontend/dist/
+frontend/coverage/
+backend/coverage/
+coverage/
+.vite/
+
+# Logs and local tooling
+*.log
+npm-debug.log*
+.DS_Store

@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"No tests specified\"",
+    "test": "node --test",
+    "lint": "node --check server.js && node --check config/env.js",
+    "typecheck": "node --check server.js",
     "start": "node server.js"
   },
   "keywords": [],
