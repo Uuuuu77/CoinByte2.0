@@ -1,9 +1,9 @@
+# Parked because the repository's GitHub Actions account/runner is unavailable.
+# Keep this manual workflow for re-enabling CI after Actions access is restored.
 name: CI
 
 on:
-  pull_request:
-  push:
-    branches: [master, hardening/**]
+  workflow_dispatch:
 
 jobs:
   checks:
@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 26
+          node-version-file: .nvmrc
           cache: npm
           cache-dependency-path: ${{ matrix.app }}/package-lock.json
       - run: npm ci
@@ -26,6 +26,7 @@ jobs:
       - run: npm run lint --if-present
       - run: npm run typecheck --if-present
       - run: npm test --if-present
+      - run: npm run build --if-present
 
   secret-scan:
     runs-on: ubuntu-latest
