@@ -4,15 +4,20 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"No tests specified\"",
+    "prepare": "node ../scripts/install-git-hooks.js",
+    "test": "node --test",
+    "lint": "node --check server.js && node --check config/env.js",
+    "typecheck": "node --check server.js",
     "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "26.x"
+  },
   "dependencies": {
     "axios": "^1.7.2",
-    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dompurify": "^3.3.0",
@@ -21,14 +26,13 @@
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^8.2.0",
     "express-validator": "^7.1.0",
-    "googleapis": "^140.0.1",
     "helmet": "^7.1.0",
     "jsdom": "^27.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.8.0",
     "mongoose": "^8.5.0",
     "morgan": "^1.10.0",
-    "nodemailer": "^7.0.10",
+    "nodemailer": "10.5.0",
     "paypal-rest-sdk": "^1.8.1",
     "stripe": "^16.2.0",
     "validator": "^13.15.20"

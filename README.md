@@ -3,6 +3,7 @@
 Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for seamless and secure trading, wallet management, social interaction, and support services.
 
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Features](#features)
 - [Technologies](#technologies)
@@ -15,6 +16,7 @@ Welcome to CoinByte, a full-stack cryptocurrency exchange platform designed for 
 ## Introduction
 
 CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts, traders, investors, developers and businesses offering:
+
 - Home dashboard
 - Secure cryptocurrency trading
 - Wallet management
@@ -41,50 +43,39 @@ CoinByte aims to provide a user-friendly platform for cryptocurrency enthusiasts
 ## Installation
 
 ### Prerequisites
-- Node.js (version 16.x or later)
-- MongoDB
+
+- Node.js 26 (the version pinned in `.nvmrc`)
+- npm
 - Git
-- Firebase or Vercel account
+- gitleaks on `PATH` for the local quality gate and hooks
+- MongoDB and the backend environment variables listed in `.env.example` to run the API
 
 ### Setup Instructions
 
-1. **Clone the repository:**
-   ```sh
-   git clone https://github.com/yourusername/CoinByte2.0.git
-   cd CoinByte2.0
-   ```
+```sh
+git clone https://github.com/Uuuuu77/CoinByte2.0.git
+cd CoinByte2.0
+nvm install
+nvm use
+npm ci
+(cd backend && npm ci)
+(cd frontend && npm ci)
+```
 
-2. **Backend Setup:**
-   ```sh
-   cd backend
-   npm install
-   ```
+Installing either package configures this clone's Git hooks. The pre-push hook runs `scripts/verify-local.sh`; its checks must pass before a push. To start the API and UI, use separate terminals:
 
-3. **Frontend Setup:**
-   ```sh
-   cd ../frontend
-   npm install
-   ```
+```sh
+cd backend && npm start
+cd frontend && npm run dev
+```
 
-4. **Environment Variables:**
-   Create a `.env` file in the `backend` directory:
-   ```
-   MONGO_URI=your_mongodb_connection_string
-   JWT_SECRET=your_jwt_secret
-   COINGECKO_API_BASE_URL=https://api.coingecko.com/api/v3
-   ```
+Create `backend/.env` from `.env.example` and configure real values only in your local environment. Never commit `.env` or production credentials. Install gitleaks using its official installation instructions before running the gate; the gate fails closed if it is missing.
 
-5. **Start the Backend Server:**
-   ```sh
-   cd backend
-   npm start
-   ```
+## Quality gate and CI status
 
-6. **Start the Frontend Server:**
-   ```sh
-   cd frontend
-   npm run dev
-   ```
+Run `scripts/verify-local.sh` from the repository root before pushing. It checks the pinned Node major, performs lockfile installs, lint/typecheck/tests/build where scripts exist, runs npm audit at high severity, and scans tracked plus nonignored working-tree files with gitleaks. Gitignored local environment files are intentionally not copied into the scan. `scripts/test-verify-local.sh` verifies that a failed step makes the gate exit non-zero.
+
+GitHub Actions is parked on `workflow_dispatch` because Actions runners are unavailable for this repository. To re-enable automatic checks after Actions access is restored, change the workflow trigger in `.github/workflows/ci.yml` to include `pull_request` and the intended push branches. Keep the local gate enabled. Vercel Preview remains the deployment signal.
 
 ## Usage
 
@@ -126,6 +117,7 @@ CoinByte/
 ## Contributing
 
 Contributions are welcome! Please:
+
 1. Fork the repository.
 2. Create a new branch (`git checkout -b feature-branch`).
 3. Commit your changes (`git commit -m 'Add feature'`).

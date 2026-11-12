@@ -1,0 +1,17 @@
+{
+  "name": "coinbyte-local-gate",
+  "private": true,
+  "engines": {
+    "node": "26.x"
+  },
+  "scripts": {
+    "prepare": "node scripts/install-git-hooks.js",
+    "verify-local": "bash scripts/verify-local.sh",
+    "test:node-pin": "node scripts/test-node-pin.js",
+    "test:verify-local": "bash scripts/test-verify-local.sh",
+    "test:repo-hygiene": "bash scripts/test-repo-hygiene.sh"
+  },
+  "devDependencies": {
+    "prettier": "^3.10.1"
+  }
+}

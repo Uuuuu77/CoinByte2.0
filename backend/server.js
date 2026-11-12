@@ -6,31 +6,30 @@ const helmet = require('helmet');
 const cors = require('cors');
 const morgan = require('morgan');
 const mongoSanitize = require('express-mongo-sanitize');
+const rateLimit = require('express-rate-limit');
 const { errorHandler, notFoundHandler } = require('./middleware/errorMiddleware');
+const { loadConfig } = require('./config/env');
 const routes = require('./routes/index');
 
+const config = loadConfig();
 const app = express();
-const port = process.env.PORT || 5000;
 
-// Enable cors
 const corsOptions = {
-  origin: [
-    'http://localhost:5173/', // Add your local frontend origin here
-    'https://coin-byte2o-john-njugunas-projects.vercel.app'
-  ],
-  optionsSuccessStatus: 200,
+  origin: config.corsOrigins,
+  optionsSuccessStatus: 204,
 };
 
 app.use(cors(corsOptions));
 
 // Middleware
-app.use(express.json({ limit: '10kb' })); // Limit body size to prevent DoS
-app.use(helmet()); // Secure HTTP headers
-app.use(morgan('dev')); // Log HTTP requests
-app.use(mongoSanitize()); // Prevent NoSQL injection
+app.use(express.json({ limit: '10kb' }));
+app.use(helmet());
+app.use(morgan('combined', { skip: (req) => req.path === '/health' }));
+app.use(mongoSanitize());
+app.use(rateLimit({ windowMs: 15 * 60 * 1000, limit: 300, standardHeaders: 'draft-7', legacyHeaders: false }));
 
 // Connect Database
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(config.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected...'))
   .catch(err => {
     console.error(err);
@@ -38,6 +37,7 @@ mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopol
   });
 
 // Define Routes
+app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 app.use('/api', routes);
 
 app.get('/', (req, res) => {
